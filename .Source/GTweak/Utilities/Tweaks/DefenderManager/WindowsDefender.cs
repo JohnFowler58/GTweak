@@ -33,25 +33,6 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             { "wscsvc", "2" }
         };
 
-        private static readonly (string Path, string Normal, string Block)[] fileMappings = new (string Path, string Normal, string Block)[]
-        {
-           (Environment.SystemDirectory, "smartscreen.exe", "BlockSS.exe"),
-           (PathLocator.Folders.WindowsDefender, "MsMpEng.exe", "BlockAntimalware.exe"),
-           (PathLocator.Folders.WindowsDefender, "MpDefenderCoreService.exe", "BlockAntimalwareCore.exe"),
-           (PathLocator.Folders.WindowsDefender, "MpCmdRun.exe", "BlockMpCmdRun.exe"),
-           (PathLocator.Folders.WindowsDefender, "MpCopyAccelerator.exe", "BlockMpCopyAccelerator.exe"),
-           (PathLocator.Folders.WindowsDefender, "DlpUserAgent.exe", "BlockDlpUserAgent.exe"),
-           (PathLocator.Folders.WindowsDefender, "MpDlpCmd.exe", "BlockMpDlpCmd.exe"),
-           (PathLocator.Folders.WindowsDefender, "MipDlp.exe", "BlockMDlp.exe"),
-           (PathLocator.Folders.WindowsDefender, "MpDlpService.exe", "BlockMpDlpService.exe"),
-           (PathLocator.Folders.WindowsDefender, "mpextms.exe", "Blockmpextms.exe"),
-           (PathLocator.Folders.WindowsDefender, "NisSrv.exe", "BlockNisSrv.exe"),
-           (PathLocator.Folders.WindowsDefender, "ConfigSecurityPolicy.exe", "BlockConfigSecurityPolicy.exe"),
-           (Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),"Windows Defender","BlockWindowsDefenderX86"),
-           (Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Windows Defender Advanced Threat Protection", "BlockWindowsDefenderATP" ),
-           (Path.Combine(Environment.SystemDirectory, "HealthAttestationClient"), "HealthAttestationClientAgent.exe", "BlockHACA.exe")
-        };
-
         internal static void SetProtectionState(bool isDisabled)
         {
             if (isDisabled)
@@ -81,7 +62,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             Set-MpPreference -MAPSReporting 2
             Set-MpPreference -PUAProtection Enabled");
 
-            CommandExecutor.RunCommandAsTrustedInstaller($"{PathLocator.Executable.NSudo} -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c " +
+            CommandExecutor.RunCommandAsTrustedInstaller($"{PathLocator.Executable.NSudo} -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c " +
             @"reg delete ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v LocalSettingOverrideDisableOnAccessProtection /f & " +
             @"reg delete ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v LocalSettingOverrideRealtimeScanDirection /f & " +
             @"reg delete ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v LocalSettingOverrideDisableIOAVProtection /f & " +
@@ -104,7 +85,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             @"reg delete ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v DisablePrivacyMode /f & " +
             @"reg delete ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v DisableBlockAtFirstSeen /f");
 
-            CommandExecutor.RunCommandAsTrustedInstaller($"{PathLocator.Executable.NSudo} -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c " +
+            CommandExecutor.RunCommandAsTrustedInstaller($"{PathLocator.Executable.NSudo} -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c " +
             @"reg delete ""HKCU\Software\Microsoft\Windows\CurrentVersion\AppHost"" /v EnableWebContentEvaluation /t REG_DWORD /d 0 /f & " +
             @"reg delete ""HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter"" /v EnabledV9 /f & " +
             @"reg add ""HKLM\SOFTWARE\Microsoft\Windows Defender"" /v PUAProtection /t REG_DWORD /d 2 /f & " +
@@ -172,7 +153,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             RegistryHelp.DeleteValue(Registry.LocalMachine, @"SOFTWARE\Microsoft\Windows defender\Windows defender Exploit Guard\Controlled Folder Access", "EnableControlledFolderAccess");
             RegistryHelp.DeleteValue(Registry.LocalMachine, @"SOFTWARE\Microsoft\Windows Defender\Windows Defender Exploit Guard\Network Protection", "EnableNetworkProtection");
 
-            CommandExecutor.RunCommandAsTrustedInstaller($@"{PathLocator.Executable.NSudo}-U:T -P:E -M:S -ShowWindowMode:Hide cmd /c " +
+            CommandExecutor.RunCommandAsTrustedInstaller($@"{PathLocator.Executable.NSudo}-U:T -P:E -CreatePath:S -ShowWindowMode:Hide cmd /c " +
             @"reg delete HKLM\SYSTEM\CurrentControlSet\Services\WinDefend /v AutorunsDisabled /f & " +
             @"reg add HKLM\SYSTEM\CurrentControlSet\Services\wscsvc /v DelayedAutoStart /t REG_DWORD /d 1 /f & " +
             @"reg add ""HKLM\SYSTEM\CurrentControlSet\Services\WdFilter\Instances\WdFilter Instance"" /v Altitude /t REG_SZ /d 328010 /f & " +
@@ -192,25 +173,23 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             ManageExclusions(false);
             SetTaskState(true, winDefenderTasks);
 
-            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c {CommandExecutor.CleanCommand(string.Join(" & ", services.Select(kv => $@"reg add ""HKLM\SYSTEM\CurrentControlSet\Services\{kv.Key}"" /v Start /t REG_DWORD /d {kv.Value} /f")))}""");
+            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c {CommandExecutor.CleanCommand(string.Join(" & ", services.Select(kv => $@"reg add ""HKLM\SYSTEM\CurrentControlSet\Services\{kv.Key}"" /v Start /t REG_DWORD /d {kv.Value} /f")))}""");
 
-            foreach (var (path, normal, block) in fileMappings)
+            foreach ((string Normal, string Block) in PathLocator.Targets.Defender.Mappings)
             {
-                string sourcePath = Path.Combine(path, block);
-                string targetPath = Path.Combine(path, normal);
-
-                CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c ""{CommandExecutor.CleanCommand(string.Join(" && ", new[] {
-                    $@"takeown /f ""{sourcePath}"" /a",
-                    $@"rename ""{sourcePath}"" ""{normal}""",
-                    $@"icacls ""{targetPath}"" /setowner *S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464",
-                    $@"icacls ""{targetPath}"" /inheritance:r",
-                    $@"icacls ""{targetPath}"" /grant *S-1-5-32-544:F",
-                    $@"icacls ""{targetPath}"" /grant *S-1-5-32-545:R",
-                    $@"icacls ""{targetPath}"" /grant *S-1-5-18:F",
-                    $@"icacls ""{targetPath}"" /grant *S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464:F",
-                    $@"icacls ""{targetPath}"" /grant *S-1-15-2-1:R",
-                    $@"icacls ""{targetPath}"" /grant *S-1-15-2-2:R",
-                    $@"icacls ""{targetPath}"" /remove ""{Environment.UserName}"""}))}""");
+                CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c ""{CommandExecutor.CleanCommand(string.Join(" && ", new[] {
+                    $@"(if exist ""{Normal}"" (takeown /f ""{Normal}"" /a && del /f /q /a ""{Normal}"") else (cd .))",
+                    $@"takeown /f ""{Block}"" /a",
+                    $@"rename ""{Block}"" ""{Path.GetFileName(Normal)}""",
+                    $@"icacls ""{Normal}"" /setowner *S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464",
+                    $@"icacls ""{Normal}"" /inheritance:r",
+                    $@"icacls ""{Normal}"" /grant *S-1-5-32-544:F",
+                    $@"icacls ""{Normal}"" /grant *S-1-5-32-545:R",
+                    $@"icacls ""{Normal}"" /grant *S-1-5-18:F",
+                    $@"icacls ""{Normal}"" /grant *S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464:F",
+                    $@"icacls ""{Normal}"" /grant *S-1-15-2-1:R",
+                    $@"icacls ""{Normal}"" /grant *S-1-15-2-2:R",
+                    $@"icacls ""{Normal}"" /remove ""{Environment.UserName}"""}))}""");
             }
 
             ImportRights();
@@ -225,14 +204,21 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
 
             TerminateProcess();
 
-            foreach (var (path, normal, block) in fileMappings)
+            foreach (var (Normal, Block) in PathLocator.Targets.Defender.Mappings)
             {
-                CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c ""rename ""{Path.Combine(path, normal)}"" ""{block}""""");
+                CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c ""{CommandExecutor.CleanCommand(string.Join(" && ", new[] {
+                    $@"takeown /f ""{Normal}"" /a",
+                    $@"icacls ""{Normal}"" /inheritance:r",
+                    $@"icacls ""{Normal}"" /remove *S-1-5-32-544 *S-1-5-11 *S-1-5-32-545 *S-1-5-18",
+                    $@"icacls ""{Normal}"" /grant ""{Environment.UserName}"":F",
+                    $@"(if exist ""{Block}"" (takeown /f ""{Block}"" /a && del /f /q /a ""{Block}"") else (cd .))",
+                    $@"rename ""{Normal}"" ""{Path.GetFileName(Block)}"""
+                }))}""");
             }
 
-            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c {CommandExecutor.CleanCommand(string.Join(" & ", services.Select(kv => $@"reg add ""HKLM\SYSTEM\CurrentControlSet\Services\{kv.Key}"" /v Start /t REG_DWORD /d 4 /f")))}""");
+            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c {CommandExecutor.CleanCommand(string.Join(" & ", services.Select(kv => $@"reg add ""HKLM\SYSTEM\CurrentControlSet\Services\{kv.Key}"" /v Start /t REG_DWORD /d 4 /f")))}""");
 
-            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c " +
+            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c " +
             $"for /d %D in (\"{Path.Combine(PathLocator.Folders.SystemDrive, @"ProgramData\\Microsoft\\Windows Defender\\Platform\\*")}\") do if exist \"%D\\MsMpEng.exe\" ren \"%D\\MsMpEng.exe\" BlockAntimalware.exe & " +
             $"for /d %D in (\"{Path.Combine(PathLocator.Folders.SystemDrive, @"ProgramData\\Microsoft\\Windows Defender\\Platform\\*")}\") do if exist \"%D\\MpDefenderCoreService.exe\" ren \"%D\\MpDefenderCoreService.exe\" BlockAntimalwareCore.exe & " +
             @"reg add HKLM\SYSTEM\CurrentControlSet\Services\WinDefend /v AutorunsDisabled /t REG_DWORD /d 3 /f & " +
@@ -266,7 +252,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             Set-MpPreference -MAPSReporting 0
             Set-MpPreference -PUAProtection Disabled");
 
-            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c " +
+            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c " +
             @"reg add ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v LocalSettingOverrideDisableOnAccessProtection /t REG_DWORD /d 0 /f & " +
             @"reg add ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v LocalSettingOverrideRealtimeScanDirection /t REG_DWORD /d 0 /f & " +
             @"reg add ""HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"" /v LocalSettingOverrideDisableIOAVProtection /t REG_DWORD /d 0 /f & " +
@@ -328,7 +314,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             RegistryHelp.Write(Registry.LocalMachine, @"SOFTWARE\Policies\Microsoft\Microsoft Antimalware\SpyNet", "SpyNetReporting", 0, RegistryValueKind.DWord);
             RegistryHelp.Write(Registry.LocalMachine, @"SOFTWARE\Policies\Microsoft\Microsoft Antimalware\SpyNet", "LocalSettingOverrideSpyNetReporting", 0, RegistryValueKind.DWord);
 
-            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c " +
+            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c " +
             @"reg add ""HKLM\Software\Policies\Microsoft\Windows Defender\SpyNet"" /v DisableBlockAtFirstSeen /t REG_DWORD /d 1 /f & " +
             @"reg add ""HKLM\Software\Policies\Microsoft\Windows Defender\SpyNet"" /v SpynetReporting /t REG_DWORD /d 0 /f & " +
             @"reg add ""HKLM\Software\Policies\Microsoft\Windows Defender\SpyNet"" /v SubmitSamplesConsent /t REG_DWORD /d 2 /f & " +
@@ -398,7 +384,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             RegistryHelp.DeleteValue(Registry.CurrentUser, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "Windows Defender");
             RegistryHelp.DeleteValue(Registry.LocalMachine, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "SecurityHealth");
 
-            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c " +
+            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c " +
             @"reg add ""HKCU\Software\Microsoft\Windows\CurrentVersion\AppHost"" /v EnableWebContentEvaluation /t REG_DWORD /d 0 /f & " +
             @"reg add ""HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter"" /v EnabledV9 /t REG_DWORD /d 0 /f & " +
             @"reg add ""HKLM\SOFTWARE\Microsoft\Windows Defender"" /v PUAProtection /t REG_DWORD /d 0 /f & " +
@@ -417,12 +403,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
 
             ManageExclusions(true);
 
-            foreach (var directory in new[]
-            {
-                Path.Combine(PathLocator.Folders.SystemDrive, "ProgramData", "Microsoft", "Windows Defender", "Scans", "History"),
-                Path.Combine(PathLocator.Folders.SystemDrive, "ProgramData", "Microsoft", "Windows Defender", "Scans", "Workspace"),
-                Path.Combine(PathLocator.Folders.SystemDrive, "ProgramData", "Microsoft", "Windows Defender", "Support")
-            })
+            foreach (string directory in PathLocator.Targets.Defender.CleanupFolders)
             {
                 try
                 {
@@ -431,9 +412,9 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
                         continue;
                     }
 
-                    foreach (var filePath in Directory.EnumerateFiles(directory, "*", SearchOption.TopDirectoryOnly))
+                    foreach (string filePath in Directory.EnumerateFiles(directory, "*", SearchOption.TopDirectoryOnly))
                     {
-                        CommandExecutor.RunCommandAsTrustedInstaller($@"{PathLocator.Executable.NSudo} -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c ""takeown /f \""{filePath}\"" /r /d y && icacls \""{filePath}\"" /inheritance:r /remove *S-1-5-32-544 *S-1-5-11 *S-1-5-32-545 *S-1-5-18 && icacls \""{filePath}\"" /grant {Environment.UserName}:F /t && del /q \""{filePath}\""""");
+                        CommandExecutor.RunCommandAsTrustedInstaller($@"{PathLocator.Executable.NSudo} -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c ""takeown /f \""{filePath}\"" /r /d y && icacls \""{filePath}\"" /inheritance:r /remove *S-1-5-32-544 *S-1-5-11 *S-1-5-32-545 *S-1-5-18 && icacls \""{filePath}\"" /grant {Environment.UserName}:F /t && del /q \""{filePath}\""""");
 
                         for (int i = 0; Directory.Exists(filePath) && i < 10; i++)
                         {
@@ -441,7 +422,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
                             catch (Exception ex) { ErrorLogging.LogDebug(ex); }
 
                             TakingOwnership.GrantAdministratorsAccess(filePath, TakingOwnership.SE_OBJECT_TYPE.SE_FILE_OBJECT);
-                            CommandExecutor.RunCommandAsTrustedInstaller($@"{PathLocator.Executable.NSudo} -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c ""del /q ""{filePath}""""");
+                            CommandExecutor.RunCommandAsTrustedInstaller($@"{PathLocator.Executable.NSudo} -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c ""del /q ""{filePath}""""");
 
                             Thread.Sleep(500);
                         }
@@ -486,7 +467,7 @@ namespace GTweak.Utilities.Tweaks.DefenderManager
             string[] processes = { "smartscreen", "mpdefendercoreservice", "msmpeng", "securityhealthservice", "securityhealthsystray", "securityhealthui", "wuauserv", "searchui", "sechealthui", "configsecuritypolicy", "runtimebroker", "msedge", "ssoncom", "usocoreworker", "defenderbootstrapper", "sensedlpprocessor", "sensetracer",
             "dlpuseragent", "lsass", "mpam-d", "mpam-fe", "mpam-fe_bd", "mpas-d", "mpas-fe", "mpas-fe_bd", "mpav-d", "mpav-fe", "mpav-fe_bd", "mpcmdrun", "mpcopyaccelerator", "mpdlpcmd", "mpdlpservice", "mpextms", "mpsigstub", "mrt", "msmpengcp", "mssense", "nissrv", "offlinescannershell", "securekernel", "usocoreworker", "securityhealthhost",
             "senseap", "senseaptoast", "sensecm", "sensegpparser", "senseidentity", "senseimdscollector", "senseir", "sensendr", "sensesampleuploader", "sensetvm", "sgrmbroker", "healthattestationclientagent", "wdnissvc", "wdboot", "msseccore", "mssecflt", "mssecwfp", "mdcoresvc", "sensece", "senseui", "sensepp", "wdshield", "mipdlp"  };
-            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -M:S -ShowWindowMode:Hide -Wait cmd /c taskkill /f " + string.Join(" ", processes.Select(p => $"/im {p}.exe")));
+            CommandExecutor.RunCommandAsTrustedInstaller($@"""{PathLocator.Executable.NSudo}"" -U:T -P:E -CreatePath:S -ShowWindowMode:Hide -Wait cmd /c taskkill /f " + string.Join(" ", processes.Select(p => $"/im {p}.exe")));
         }
 
         private static void InvokePowerShell(string command)

@@ -9,13 +9,12 @@
     
     <!--#region Load Window -->
     <v:String x:Key="title_load">Carregando</v:String>
-    <v:String x:Key="step1_load">Carregando perfil</v:String>
-    <v:String x:Key="step2_load">Buscando dados</v:String>
-    <v:String x:Key="step3_load">Inspecionando registro</v:String>
-    <v:String x:Key="step4_load">Analisando aplicativos</v:String>
-    <v:String x:Key="step5_load">Inventário de hardware</v:String>
-    <v:String x:Key="step6_load">Verificando a conexão</v:String>
-    <v:String x:Key="step7_load">Inicialização</v:String>
+    <v:String x:Key="step1_load">Preparando o ambiente</v:String>
+    <v:String x:Key="step2_load">Verificando o status dos componentes</v:String>
+    <v:String x:Key="step3_load">Escaneando a configuração</v:String>
+    <v:String x:Key="step4_load">Procurando pacotes instalados</v:String>
+    <v:String x:Key="step5_load">Verificando rede e atualizações</v:String>
+    <v:String x:Key="step6_load">Inicialização</v:String>
     <!--#endregion-->
 
     <!--#region Message Window -->
@@ -74,8 +73,8 @@
     <v:String x:Key="notsupport_ntfs_noty">A operação não está disponível porque o diretório não está localizado em uma partição NTFS</v:String>
     <v:String x:Key="success_reg_exporter_noty">Arquivo de registro salvo com sucesso</v:String>
     <v:String x:Key="error_reg_exporter_noty">Ocorreu um erro ao salvar o arquivo de registro</v:String>
-    <v:String x:Key="error_git_limit_noty">GitHub has temporarily rate-limited API requests, please try again later</v:String>
-    <v:String x:Key="error_download_noty">Failed to establish a connection with the server</v:String>
+    <v:String x:Key="error_git_limit_noty">O GitHub limitou temporariamente as requisições da API, tente novamente mais tarde</v:String>
+    <v:String x:Key="error_download_noty">Falha ao estabelecer conexão com o servidor</v:String>
     <!--#endregion-->
 
     <!--#region Main Window -->
@@ -87,7 +86,7 @@
     <v:String x:Key="rbtn_sys_main">Sistema</v:String>
     <v:String x:Key="rbtn_sysinfo_main">Informações do sistema</v:String>
     <v:String x:Key="rbtn_adds_main">Complementos</v:String>
-    <v:String x:Key="rbtn_ts_main">Toolset</v:String>
+    <v:String x:Key="rbtn_ts_main">Conjunto de ferramentas</v:String>
     <v:String x:Key="title_settings_main">Configurações</v:String>
     <v:String x:Key="btgl_noty_main">Mostrar notificações</v:String>
     <v:String x:Key="slider_volume_main">Volume:</v:String>
@@ -522,6 +521,7 @@
     <v:String x:Key="title_cpu_sysinfo">Processador:</v:String>
     <v:String x:Key="title_cores_sysinfo">Núcleos:</v:String>
     <v:String x:Key="title_threads_sysinfo">Threads:</v:String>
+    <v:String x:Key="title_freq_sysinfo">Frequência:</v:String>
     <v:String x:Key="title_gpu_sysinfo">Gráficos:</v:String>
     <v:String x:Key="title_refreshrate_sysinfo">Taxa de atualização:</v:String>
     <v:String x:Key="title_ram_sysinfo">Memória:</v:String>
@@ -549,12 +549,12 @@
     <!--#endregion-->
 
     <!--#region Toolset Page -->
-    <v:String x:Key="source_ts">Source</v:String>
-    <v:String x:Key="btn_download">Download</v:String>
-    <v:String x:Key="btn_cancel">Сancel</v:String>
-    <v:String x:Key="btn_open_dir">Open folder</v:String>
-    <v:String x:Key="text_ts">Search by name or author</v:String>
-    <v:String x:Key="connecting_ts">Connecting</v:String>
+    <v:String x:Key="source_ts">Fonte</v:String>
+    <v:String x:Key="btn_download">Baixar</v:String>
+    <v:String x:Key="btn_cancel">Cancelar</v:String>
+    <v:String x:Key="btn_open_dir">Abrir pasta</v:String>
+    <v:String x:Key="text_ts">Pesquisar por nome ou autor</v:String>
+    <v:String x:Key="connecting_ts">Conectando</v:String>
     <!--#endregion-->
 
 </ResourceDictionary>

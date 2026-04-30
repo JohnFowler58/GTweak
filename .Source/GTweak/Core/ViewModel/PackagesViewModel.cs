@@ -17,6 +17,7 @@ namespace GTweak.Core.ViewModel
         public ObservableCollection<PackagesModel> DisplayState { get; set; }
 
         public Visibility Win11FeatureOnly => HardwareData.OS.IsWin11 ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility Win10FeatureOnly => HardwareData.OS.IsWin10 ? Visibility.Visible : Visibility.Collapsed;
 
         public PackagesModel this[string name] => DisplayState.FirstOrDefault(d => d.Name == name);
 
@@ -70,10 +71,11 @@ namespace GTweak.Core.ViewModel
                     case "onedrive":
                         item.Installed = UninstallingPakages.IsOneDriveInstalled;
                         return;
-
                     case "edge":
                         item.Installed = UninstallingPakages.IsEdgeInstalled;
                         return;
+                    default:
+                        break;
                 }
 
                 IReadOnlyList<string> scripts = val.Scripts;

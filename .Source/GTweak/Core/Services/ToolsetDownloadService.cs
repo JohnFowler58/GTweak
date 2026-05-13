@@ -29,7 +29,7 @@ namespace GTweak.Core.Services
 
         internal static DownloadSession GetOrCreateSession(ToolsetModel model) => _sessions.GetOrAdd(!string.IsNullOrWhiteSpace(model.SourceUrl) ? model.SourceUrl : model.AppName, _ => new DownloadSession(model));
 
-        internal static async Task<string> GetResolvedDownloadUrl(ToolsetModel model)
+        internal static async Task<string> GetResolvedDownloadUrl(ToolsetModel model, CancellationToken token = default)
         {
             if (model.Group.Equals("web", StringComparison.OrdinalIgnoreCase))
             {
@@ -38,7 +38,9 @@ namespace GTweak.Core.Services
                     return model.DownloadPath;
                 }
 
-                string htmlCode = await _httpClient.GetStringAsync(model.DownloadPath);
+                using HttpResponseMessage response = await _httpClient.GetAsync(model.DownloadPath, token);
+                response.EnsureSuccessStatusCode();
+                string htmlCode = await response.Content.ReadAsStringAsync();
                 Match match = Regex.Match(htmlCode, model.UrlPattern, RegexOptions.IgnoreCase);
 
                 if (match.Success)
@@ -60,7 +62,7 @@ namespace GTweak.Core.Services
             if (model.Group.Equals("github", StringComparison.OrdinalIgnoreCase))
             {
                 string apiUrl = PathLocator.Links.DownloadSources.GitHubLatest(model.DownloadPath);
-                using HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
+                using HttpResponseMessage response = await _httpClient.GetAsync(apiUrl, token);
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -104,7 +106,7 @@ namespace GTweak.Core.Services
                 string bestReleaseUrl = PathLocator.Links.DownloadSources.SourceForgeBest(projectName);
                 try
                 {
-                    using HttpResponseMessage response = await _httpClient.GetAsync(bestReleaseUrl);
+                    using HttpResponseMessage response = await _httpClient.GetAsync(bestReleaseUrl, token);
                     if (response.IsSuccessStatusCode)
                     {
                         string content = await response.Content.ReadAsStringAsync();
@@ -128,7 +130,9 @@ namespace GTweak.Core.Services
                 try
                 {
                     string rssUrl = PathLocator.Links.DownloadSources.SourceForgeRss(projectName);
-                    string rssContent = await _httpClient.GetStringAsync(rssUrl);
+                    using HttpResponseMessage rssResponse = await _httpClient.GetAsync(rssUrl, token);
+                    rssResponse.EnsureSuccessStatusCode();
+                    string rssContent = await rssResponse.Content.ReadAsStringAsync();
 
                     MatchCollection rssMatches = Regex.Matches(rssContent, PathLocator.Links.DownloadSources.SourceForgeRssRegex(projectName), RegexOptions.IgnoreCase);
 
@@ -157,6 +161,63 @@ namespace GTweak.Core.Services
                 }
 
                 throw new HttpRequestException();
+            }
+
+            if (model.Group.Equals("techpowerup", StringComparison.OrdinalIgnoreCase))
+            {
+                using HttpResponseMessage initialResponse = await _httpClient.GetAsync(model.DownloadPath, token);
+                initialResponse.EnsureSuccessStatusCode();
+                string initialHtml = await initialResponse.Content.ReadAsStringAsync();
+
+                Match idMatch = Regex.Match(initialHtml, @"name=""id""\s+value=""(?<id>\d+)""", RegexOptions.IgnoreCase);
+
+                if (!idMatch.Success)
+                {
+                    throw new HttpRequestException();
+                }
+
+                string fileId = idMatch.Groups["id"].Value;
+
+                FormUrlEncodedContent firstStepPayload = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("id", fileId) });
+
+                using HttpResponseMessage firstResponse = await _httpClient.PostAsync(model.DownloadPath, firstStepPayload, token);
+                string serverSelectionHtml = await firstResponse.Content.ReadAsStringAsync();
+
+                MatchCollection serverMatches = Regex.Matches(serverSelectionHtml, @"(?is)<button[^>]+?name=""server_id""[^>]+?value=""(?<sid>\d+)""[^>]*>(?<content>.*?)</button>");
+
+                string closestId = null, lowLoadId = null, firstId = null;
+
+                foreach (Match m in serverMatches)
+                {
+                    string sid = m.Groups["sid"].Value;
+                    string content = m.Groups["content"].Value;
+
+                    firstId ??= sid;
+
+                    if (content.IndexOf("closest", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        closestId = sid;
+                        break;
+                    }
+
+                    if (lowLoadId == null && content.IndexOf("server-load low", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        lowLoadId = sid;
+                    }
+                }
+
+                FormUrlEncodedContent finalPayload = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("id", fileId), new KeyValuePair<string, string>("server_id", closestId ?? lowLoadId ?? firstId ?? throw new HttpRequestException()) });
+
+                using HttpRequestMessage finalRequest = new HttpRequestMessage(HttpMethod.Post, model.DownloadPath)
+                {
+                    Content = finalPayload
+                };
+
+                finalRequest.Headers.Referrer = new Uri(model.DownloadPath);
+
+                using HttpResponseMessage finalResponse = await _httpClient.SendAsync(finalRequest, HttpCompletionOption.ResponseHeadersRead, token);
+
+                return finalResponse.RequestMessage.RequestUri.ToString();
             }
 
             throw new HttpRequestException();

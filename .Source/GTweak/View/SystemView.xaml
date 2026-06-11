@@ -23,7 +23,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="130" />
+            <RowDefinition Height="135" />
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -85,7 +85,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <uc:DescriptionBlock VerticalAlignment="Stretch" x:Name="DescBlock" DefaultText="{DynamicResource defaultDescription}"/>
+            <uc:DescriptionBlock VerticalAlignment="Stretch" x:Name="DescBlock" DefaultText="{DynamicResource default_desc}"/>
         </Grid>
 
     </Grid>

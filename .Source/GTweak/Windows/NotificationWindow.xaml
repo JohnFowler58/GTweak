@@ -65,11 +65,11 @@
                         </TextBlock.RenderTransform>
                     </TextBlock>
 
-                    <TextBlock x:Name="MessageBody" Text="Text" Foreground="{StaticResource Brush_TextBlock_Inactivity}" Height="auto" FontFamily="{StaticResource Jura}" FontSize="14"  TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Left" FontStretch="Medium" MaxWidth="285"/>
+                    <TextBlock x:Name="MessageBody" Margin="0,0,5,0" Text="Text" Foreground="{StaticResource Brush_TextBlock_Inactivity}" Height="auto" FontFamily="{StaticResource Jura}" FontSize="14"  TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Left" FontStretch="Medium" MaxWidth="285"/>
                 </Grid>
             </Grid>
 
-            <ProgressBar x:Name="ProgressTimer" Grid.ColumnSpan="2"  Maximum="100" Value="0" Foreground="{StaticResource Brush_Accent}" Height="3" Width="375" HorizontalAlignment="Center" VerticalAlignment="Bottom" Panel.ZIndex="10"/>
+            <ProgressBar x:Name="ProgressTimer" Grid.ColumnSpan="2" Maximum="100" Value="0" Foreground="{StaticResource Brush_Accent}" Height="3" Width="375" HorizontalAlignment="Center" VerticalAlignment="Bottom" Panel.ZIndex="10"/>
         </Grid>
     </Grid>
 </ui:FluentWindow>

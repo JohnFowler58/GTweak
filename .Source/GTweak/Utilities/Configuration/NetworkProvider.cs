@@ -57,6 +57,14 @@ namespace GTweak.Utilities.Configuration
 
         internal static bool isIPAddressFormatValid = false;
 
+        internal static string GetConnectionResourceKey() => CurrentConnection switch
+        {
+            ConnectionStatus.Lose => "connection_lose_sysinfo",
+            ConnectionStatus.Block => "connection_block_sysinfo",
+            ConnectionStatus.Limited => "connection_limited_sysinfo",
+            _ => null
+        };
+
         internal async Task<bool> IsNetworkAvailable()
         {
             string dns = HardwareProvider.GetCurrentSystemLang().Code switch
@@ -128,7 +136,8 @@ namespace GTweak.Utilities.Configuration
                         if (ipMetadata != null && !string.IsNullOrWhiteSpace(ipMetadata.Ip) && !string.IsNullOrWhiteSpace(ipMetadata.Country) && IPAddress.TryParse(ipMetadata.Ip, out _))
                         {
                             CurrentConnection = ConnectionStatus.Available;
-                            UserIPAddress = $"{ipMetadata.Ip} ({ipMetadata.Country})";
+                            UserIPAddress = ipMetadata.Ip;
+                            UserCountryCode = ipMetadata.Country;
                             break;
                         }
 
@@ -158,13 +167,12 @@ namespace GTweak.Utilities.Configuration
                 CurrentConnection = ConnectionStatus.Lose;
             }
 
-            if (new Dictionary<ConnectionStatus, string>
+            string key = GetConnectionResourceKey();
+            if (key != null)
             {
-                { ConnectionStatus.Lose, "connection_lose_sysinfo" },
-                { ConnectionStatus.Block, "connection_block_sysinfo" },
-                { ConnectionStatus.Limited, "connection_limited_sysinfo" }
-            }.TryGetValue(CurrentConnection, out string resourceKey)) { UserIPAddress = (string)Application.Current.Resources[resourceKey]; }
-
+                UserCountryCode = string.Empty;
+                UserIPAddress = Application.Current.Resources[key] as string ?? string.Empty;
+            }
             isIPAddressFormatValid = UserIPAddress.Any(char.IsDigit);
         }
 

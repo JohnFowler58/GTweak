@@ -4,10 +4,11 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using GTweak.Core.Behaviors;
-using GTweak.Utilities.Animation;
-using GTweak.Utilities.Controls;
+using GTweak.Animations;
+using GTweak.Behaviors;
+using GTweak.Modules.Common;
 
 namespace GTweak.Assets.UserControls
 {
@@ -34,6 +35,34 @@ namespace GTweak.Assets.UserControls
             set => SetValue(TargetStateProperty, value);
         }
 
+        internal object ContentSource
+        {
+            set
+            {
+                TargetState = null;
+                string newText = DefaultText;
+
+                switch (value)
+                {
+                    case ToggleButton btn:
+                        TargetState = btn.State;
+                        newText = btn.Description?.ToString() ?? string.Empty;
+                        break;
+                    case System.Windows.Controls.Primitives.ToggleButton btn:
+                        newText = btn.ToolTip?.ToString() ?? string.Empty;
+                        break;
+                    case StackPanel panel:
+                        newText = panel.ToolTip?.ToString() ?? string.Empty;
+                        break;
+                }
+
+                if (_currentDefaultText != newText)
+                {
+                    Text = newText;
+                }
+            }
+        }
+
         internal string Text
         {
             get => _currentDefaultText;
@@ -57,7 +86,7 @@ namespace GTweak.Assets.UserControls
 
                     TimeSpan duration = safeValue.Length <= 50 ? TimeSpan.FromMilliseconds(200) : safeValue.Length <= 200 ? TimeSpan.FromMilliseconds(400) : TimeSpan.FromMilliseconds(550);
 
-                    Caret.BeginAnimation(OpacityProperty, FactoryAnimation.CreateIn(1.0, 0.0, 0.3, reverse: true));
+                    Caret.BeginAnimation(OpacityProperty, AnimationFactory.CreateIn(1.0, 0.0, 0.3, reverse: true));
 
                     FunctionDescription.Text = string.Empty;
                     TypewriterAnimation.Create(safeValue, FunctionDescription, duration);
@@ -109,7 +138,7 @@ namespace GTweak.Assets.UserControls
             {
                 try
                 {
-                    FunctionDescription.FlowDirection = CultureInfo.GetCultureInfo(SettingsEngine.Language).TextInfo.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
+                    FunctionDescription.FlowDirection = CultureInfo.GetCultureInfo(GlobalOptions.Language).TextInfo.IsRightToLeft ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
                 }
                 catch (CultureNotFoundException) { FunctionDescription.FlowDirection = FlowDirection.LeftToRight; }
             }
@@ -130,7 +159,7 @@ namespace GTweak.Assets.UserControls
 
                         if (TargetState != null && text != DefaultText)
                         {
-                            StatusPanel.BeginAnimation(OpacityProperty, FactoryAnimation.CreateIn(0.0, 1.0, 0.3));
+                            StatusPanel.BeginAnimation(OpacityProperty, AnimationFactory.CreateIn(0.0, 1.0, 0.3));
                         }
                     }
                 });
@@ -169,7 +198,7 @@ namespace GTweak.Assets.UserControls
                             {
                                 await Task.Delay(TimeSpan.FromSeconds(durationSeconds), token);
                             }
-                            catch (Exception ex) { ErrorLogging.LogDebug(ex); }
+                            catch (Exception ex) { ErrorLogger.LogDebug(ex); }
                         }
                     }
                 }

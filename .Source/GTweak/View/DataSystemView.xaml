@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:b="clr-namespace:GTweak.Core.Behaviors"
+             xmlns:b="clr-namespace:GTweak.Behaviors"
              xmlns:vm="clr-namespace:GTweak.Core.ViewModel" 
              xmlns:uc="clr-namespace:GTweak.Assets.UserControls"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-             xmlns:anim="clr-namespace:GTweak.Utilities.Animation"
-             xmlns:conv="clr-namespace:GTweak.Core.Converters"
+             xmlns:anim="clr-namespace:GTweak.Animations"
+             xmlns:conv="clr-namespace:GTweak.Converters"
              xmlns:local="clr-namespace:GTweak.View"
              mc:Ignorable="d" d:Width="1014" Style="{StaticResource LaunchPage}">
     <UserControl.DataContext>
@@ -473,7 +473,7 @@
                                             <ColumnDefinition Width="Auto" SharedSizeGroup="StorageTypeColumn"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBlock Grid.Column="0" Text="{DynamicResource label_name_sysinfo}" Style="{StaticResource TextDefault}" Foreground="{StaticResource Brush_Inactive}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap"/>
-                                        <TextBlock Grid.Column="2" Text="{DynamicResource label_itype_sysinfo}" Style="{StaticResource TextDefault}" Foreground="{StaticResource Brush_Inactive}" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap"/>
+                                        <TextBlock Grid.Column="2" Text="{DynamicResource label_itype_sysinfo}" Style="{StaticResource TextDefault}" Foreground="{StaticResource Brush_Inactive}" HorizontalAlignment="Right" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap"/>
                                     </Grid>
 
                                     <ItemsControl ItemsSource="{Binding [Storage].Items}">

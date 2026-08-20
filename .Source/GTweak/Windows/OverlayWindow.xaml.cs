@@ -2,18 +2,17 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
-using GTweak.Utilities.Animation;
-using GTweak.Utilities.Helpers;
+using GTweak.Animations;
+using GTweak.Modules.Helpers;
 
 namespace GTweak.Windows
 {
     /// <summary>
     /// Darkened screen 
     /// </summary>
-
     public partial class OverlayWindow
     {
-        private readonly DisablingWinKeys disablingWinKeys = new DisablingWinKeys();
+        private readonly KeyboardHookBlocker _keyboardHook = new KeyboardHookBlocker();
         public OverlayWindow()
         {
             InitializeComponent();
@@ -26,22 +25,22 @@ namespace GTweak.Windows
                 Closing -= Window_Closing;
                 e!.Cancel = true;
 
-                if (disablingWinKeys.ptrHook != IntPtr.Zero)
+                if (_keyboardHook.ptrHook != IntPtr.Zero)
                 {
-                    DisablingWinKeys.UnhookWindowsHookEx(disablingWinKeys.ptrHook);
-                    disablingWinKeys.ptrHook = IntPtr.Zero;
+                    KeyboardHookBlocker.UnhookWindowsHookEx(_keyboardHook.ptrHook);
+                    _keyboardHook.ptrHook = IntPtr.Zero;
                 }
 
-                BeginAnimation(OpacityProperty, FactoryAnimation.CreateTo(0.15, () => { Close(); }));
+                BeginAnimation(OpacityProperty, AnimationFactory.CreateTo(0.15, () => { Close(); }));
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ProcessModule objCurrentModule = Process.GetCurrentProcess().MainModule;
-            disablingWinKeys.objKeyboardProcess = new DisablingWinKeys.LowLevelKeyboardProc(disablingWinKeys.CaptureKey);
-            disablingWinKeys.ptrHook = DisablingWinKeys.SetWindowsHookEx(13, disablingWinKeys.objKeyboardProcess, DisablingWinKeys.GetModuleHandle(objCurrentModule.ModuleName), 0);
-            BeginAnimation(OpacityProperty, FactoryAnimation.CreateIn(0, 0.5, 0.3));
+            _keyboardHook.objKeyboardProcess = new KeyboardHookBlocker.LowLevelKeyboardProc(_keyboardHook.CaptureKey);
+            _keyboardHook.ptrHook = KeyboardHookBlocker.SetWindowsHookEx(13, _keyboardHook.objKeyboardProcess, KeyboardHookBlocker.GetModuleHandle(objCurrentModule.ModuleName), 0);
+            BeginAnimation(OpacityProperty, AnimationFactory.CreateIn(0, 0.5, 0.3));
         }
     }
 }

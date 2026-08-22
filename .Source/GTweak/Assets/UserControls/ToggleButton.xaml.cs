@@ -71,32 +71,39 @@ namespace GTweak.Assets.UserControls
             }
         }
 
-        private static void OnStateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is ToggleButton tbtn)
-            {
-                tbtn.UpdateToggleState((bool)e.NewValue, !tbtn.IsLoaded);
-            }
-        }
+        private const double _leftPositionX = -12.0, _rightPositionX = 12.0;
+        private bool _isUserAction = false;
 
-        private readonly SolidColorBrush brushOffColor = new SolidColorBrush(), brushOnColor = new SolidColorBrush(),
-            borderOffColor = new SolidColorBrush(), borderOnColor = new SolidColorBrush();
+        private readonly SolidColorBrush brushOffColor = new SolidColorBrush(), brushOnColor = new SolidColorBrush(), borderOffColor = new SolidColorBrush(), borderOnColor = new SolidColorBrush();
 
-        private readonly Thickness _leftPosition = new Thickness(0, 0, 24, 0), _rightPosition = new Thickness(24, 0, 0, 0);
+        private Color _dotColorOn = (Color)Application.Current.Resources["Color_ToggleDot_On"], _dotColorOff = (Color)Application.Current.Resources["Color_ToggleDot_Off"];
 
         public ToggleButton()
         {
             InitializeComponent();
 
             brushOnColor.Color = (Color)Application.Current.Resources["Color_ToggleBG_On"];
+            brushOnColor.Freeze();
+
             brushOffColor.Color = Colors.Transparent;
+            brushOffColor.Freeze();
 
             borderOnColor.Color = (Color)Application.Current.Resources["Color_ToggleBG_On"];
+            borderOnColor.Freeze();
             borderOffColor.Color = (Color)Application.Current.Resources["Color_ToggleBorder_Off"];
+            borderOffColor.Freeze();
 
             IsEnabledChanged += ToggleButton_IsEnabledChanged;
 
             UpdateToggleState(State, true);
+        }
+
+        private static void OnStateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ToggleButton tbtn)
+            {
+                tbtn.UpdateToggleState((bool)e.NewValue, !tbtn._isUserAction);
+            }
         }
 
         private void ApplyResource(object value, DependencyProperty dp, DependencyProperty textProperty = null, FrameworkElement target = null)
@@ -145,57 +152,29 @@ namespace GTweak.Assets.UserControls
             }
         }
 
-        private void ToggleButton_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (Back != null && Dot != null && ToggleText != null)
-            {
-                if (e.NewValue is bool newBool && !newBool)
-                {
-                    Back.Opacity = 0.7;
-                    Dot.Opacity = 0.7;
-                    ToggleText.Opacity = 0.7;
-                }
-                else
-                {
-                    Back.Opacity = 1.0;
-                    Dot.Opacity = 1.0;
-                    ToggleText.Opacity = 1.0;
-                }
-            }
-        }
-
-        private void Toggle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (IsEnabled || sender?.GetType() != typeof(TextBlock))
-            {
-                State = !State;
-                RaiseEvent(new RoutedEventArgs(ChangedStateEvent));
-            }
-        }
-
         private void UpdateToggleState(bool State, bool skipAnimation = false)
         {
             if (State)
             {
-                AnimateToggle(_rightPosition, brushOffColor, brushOnColor, borderOffColor, borderOnColor, (Color)Application.Current.Resources["Color_ToggleDot_On"], skipAnimation, "TextToggle");
+                AnimateToggle(_rightPositionX, brushOffColor, brushOnColor, borderOffColor, borderOnColor, _dotColorOn, skipAnimation, "TextToggle");
             }
             else
             {
-                AnimateToggle(_leftPosition, brushOnColor, brushOffColor, borderOnColor, borderOffColor, (Color)Application.Current.Resources["Color_ToggleDot_Off"], skipAnimation, "TextInactivity");
+                AnimateToggle(_leftPositionX, brushOnColor, brushOffColor, borderOnColor, borderOffColor, _dotColorOff, skipAnimation, "TextInactivity");
             }
         }
 
-        private void AnimateToggle(Thickness targetPosition, Brush fromBrush, Brush toBrush, Brush fromBorder, Brush toBorder, Color dotColor, bool skipAnimation, string textStyle)
+        private void AnimateToggle(double targetX, Brush fromBrush, Brush toBrush, Brush fromBorder, Brush toBorder, Color dotColor, bool skipAnimation, string textStyle)
         {
             if (skipAnimation)
             {
-                Dot?.BeginAnimation(MarginProperty, null);
+                DotTranslate?.BeginAnimation(TranslateTransform.XProperty, null);
                 Back?.BeginAnimation(Shape.FillProperty, null);
                 Back?.BeginAnimation(Shape.StrokeProperty, null);
 
-                if (Dot != null)
+                if (DotTranslate != null)
                 {
-                    Dot.Margin = targetPosition;
+                    DotTranslate.X = targetX;
                 }
 
                 if (Back != null)
@@ -212,42 +191,38 @@ namespace GTweak.Assets.UserControls
             }
             else
             {
-                ThicknessAnimationUsingKeyFrames marginAnimation = new ThicknessAnimationUsingKeyFrames();
-                marginAnimation.KeyFrames.Add(new EasingThicknessKeyFrame(targetPosition, KeyTime.FromTimeSpan(TimeSpan.FromMilliseconds(200)))
-                {
-                    EasingFunction = new QuadraticEase()
-                });
-                Timeline.SetDesiredFrameRate(marginAnimation, 120);
-                Dot?.BeginAnimation(MarginProperty, marginAnimation);
+                DotTranslate?.BeginAnimation(TranslateTransform.XProperty, AnimationFactory.CreateIn(DotTranslate.X, targetX, 0.2));
 
-                BrushAnimation brushAnimation = new BrushAnimation
+                if (Back != null)
                 {
-                    From = fromBrush,
-                    To = toBrush,
-                    Duration = TimeSpan.FromMilliseconds(100)
-                };
-                Timeline.SetDesiredFrameRate(brushAnimation, 120);
-                Back?.BeginAnimation(Shape.FillProperty, brushAnimation);
+                    BrushAnimation brushAnimation = new BrushAnimation
+                    {
+                        From = fromBrush,
+                        To = toBrush,
+                        Duration = TimeSpan.FromMilliseconds(100)
+                    };
+                    Timeline.SetDesiredFrameRate(brushAnimation, 120);
+                    Back.BeginAnimation(Shape.FillProperty, brushAnimation);
 
-                BrushAnimation borderAnimation = new BrushAnimation
-                {
-                    From = fromBorder,
-                    To = toBorder,
-                    Duration = TimeSpan.FromMilliseconds(100)
-                };
-                Timeline.SetDesiredFrameRate(borderAnimation, 120);
-                Back?.BeginAnimation(Shape.StrokeProperty, borderAnimation);
-
-                ColorAnimation dotColorAnimation = new ColorAnimation
-                {
-                    To = dotColor,
-                    Duration = TimeSpan.FromMilliseconds(100),
-                    EasingFunction = new QuadraticEase()
-                };
-                Timeline.SetDesiredFrameRate(dotColorAnimation, 120);
+                    BrushAnimation borderAnimation = new BrushAnimation
+                    {
+                        From = fromBorder,
+                        To = toBorder,
+                        Duration = TimeSpan.FromMilliseconds(100)
+                    };
+                    Timeline.SetDesiredFrameRate(borderAnimation, 120);
+                    Back.BeginAnimation(Shape.StrokeProperty, borderAnimation);
+                }
 
                 if (Dot?.Fill is SolidColorBrush solidColorBrush)
                 {
+                    ColorAnimation dotColorAnimation = new ColorAnimation
+                    {
+                        To = dotColor,
+                        Duration = TimeSpan.FromMilliseconds(100),
+                        EasingFunction = new QuadraticEase()
+                    };
+                    Timeline.SetDesiredFrameRate(dotColorAnimation, 120);
                     solidColorBrush.BeginAnimation(SolidColorBrush.ColorProperty, dotColorAnimation);
                 }
             }
@@ -258,12 +233,31 @@ namespace GTweak.Assets.UserControls
             }
         }
 
+        private void ToggleButton_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Back != null && Dot != null && ToggleText != null)
+            {
+                Back.Opacity = Dot.Opacity = ToggleText.Opacity = (double)(e.NewValue is bool newBool && !newBool ? 0.7 : 1.0);
+            }
+        }
+
+        private void Toggle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (IsEnabled)
+            {
+                _isUserAction = true;
+                State = !State;
+                _isUserAction = false;
+                RaiseEvent(new RoutedEventArgs(ChangedStateEvent));
+            }
+        }
+
         private void Toggle_MouseEnter(object sender, MouseEventArgs e)
         {
             if (IsEnabled && DotScale != null)
             {
-                DotScale.BeginAnimation(ScaleTransform.ScaleXProperty, AnimationFactory.CreateIn(1, 1.1, 0.15, useCubicEase: true));
-                DotScale.BeginAnimation(ScaleTransform.ScaleYProperty, AnimationFactory.CreateIn(1, 1.1, 0.15, useCubicEase: true));
+                DotScale.BeginAnimation(ScaleTransform.ScaleXProperty, AnimationFactory.CreateIn(DotScale.ScaleX, 1.1, 0.15, useCubicEase: true));
+                DotScale.BeginAnimation(ScaleTransform.ScaleYProperty, AnimationFactory.CreateIn(DotScale.ScaleY, 1.1, 0.15, useCubicEase: true));
             }
         }
 
@@ -271,8 +265,8 @@ namespace GTweak.Assets.UserControls
         {
             if (IsEnabled && DotScale != null)
             {
-                DotScale.BeginAnimation(ScaleTransform.ScaleXProperty, AnimationFactory.CreateIn(1.1, 1, 0.15, useCubicEase: true));
-                DotScale.BeginAnimation(ScaleTransform.ScaleYProperty, AnimationFactory.CreateIn(1.1, 1, 0.15, useCubicEase: true));
+                DotScale.BeginAnimation(ScaleTransform.ScaleXProperty, AnimationFactory.CreateIn(DotScale.ScaleX, 1, 0.15, useCubicEase: true));
+                DotScale.BeginAnimation(ScaleTransform.ScaleYProperty, AnimationFactory.CreateIn(DotScale.ScaleY, 1, 0.15, useCubicEase: true));
             }
         }
     }

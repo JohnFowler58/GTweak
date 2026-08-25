@@ -7,6 +7,7 @@ using System.Windows.Threading;
 using GTweak.Core.Interfaces;
 using GTweak.Modules.Common;
 using GTweak.Modules.Managers;
+using GTweak.Modules.Storage;
 using GTweak.Modules.Tweaks;
 
 namespace GTweak.View
@@ -17,7 +18,7 @@ namespace GTweak.View
         private readonly BackgroundQueueManager _backgroundQueue = new BackgroundQueueManager();
         private readonly BackgroundWorker backgroundWorker = new BackgroundWorker();
         private readonly AppxPackageHandler _packageHandler = new AppxPackageHandler();
-        private bool? _isWebViewRemoval = false;
+        private bool? _webViewRemoval = false;
 
         public PackagesView()
         {
@@ -60,11 +61,11 @@ namespace GTweak.View
             {
                 if (string.IsNullOrWhiteSpace(PathTargets.Executable.OneDriveSetup))
                 {
-                    NotificationManager.Show("warn", "error_onedrive_noty").Perform();
+                    NotificationManager.Warn("error_onedrive_noty").Perform();
                 }
                 else
                 {
-                    NotificationManager.Show("info", "success_onedrive_noty").Perform();
+                    NotificationManager.Info("success_onedrive_noty").Perform();
 
                     await _backgroundQueue.QueueTask(async () =>
                     {
@@ -84,9 +85,9 @@ namespace GTweak.View
             {
                 if (packageName.Equals("Edge"))
                 {
-                    _isWebViewRemoval = await OverlayDialogManager.Show("title_over_pkg", "text_over_pkg", "question_over_pkg", "btn_delete_all", "btn_keep_webview");
+                    _webViewRemoval = await OverlayDialogManager.Show("title_over_pkg", "text_over_pkg", "question_over_pkg", "btn_delete_all", "btn_keep_webview");
 
-                    if (_isWebViewRemoval == null)
+                    if (_webViewRemoval == null)
                     {
                         return;
                     }
@@ -96,15 +97,12 @@ namespace GTweak.View
                 {
                     await Dispatcher.InvokeAsync(() => { AppxPackageHandler.HandleAvailabilityStatus(packageName, true); });
 
-                    try { await AppxPackageHandler.RemoveAppxPackage(packageName, (bool)_isWebViewRemoval); }
+                    try { await AppxPackageHandler.RemoveAppxPackage(packageName, (bool)_webViewRemoval); }
                     finally { await Dispatcher.InvokeAsync(() => { AppxPackageHandler.HandleAvailabilityStatus(packageName, false); }); }
 
                     await Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        if (ExplorerManager.PackageActions.TryGetValue(packageName, out ExplorerManager.ExplorerAction explorerAction))
-                        {
-                            ExplorerManager.Restart();
-                        }
+                        ExplorerManager.Handle(PackageStorage.PackagesDetails[packageName].ShellType);
                     }), DispatcherPriority.ApplicationIdle);
                 });
             }

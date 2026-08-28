@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
-    <None Include="Resources\AppsCatalog.xml" />
+    <None Include="Resources\ToolsetStore.json" />
     <None Include="Resources\*.gz" />
     <None Include="Resources\Blocklist.txt" />
     <None Include="Resources\Tickets.xml" />
@@ -225,6 +225,7 @@
     <Compile Include="Modules\Configuration\StorageTypeIdentifier.cs" />
     <Compile Include="Modules\Configuration\HardwareData.cs" />
     <Compile Include="Modules\Extensions\PostActionExtensions.cs" />
+    <Compile Include="Modules\Helpers\FileDirectoryHelper.cs" />
     <Compile Include="Modules\Helpers\UnlockHandleHelper.cs" />
     <Compile Include="Modules\Extensions\WindowExtensions.cs" />
     <Compile Include="Modules\Maintenance\MemoryCleaner.cs" />
@@ -524,6 +525,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

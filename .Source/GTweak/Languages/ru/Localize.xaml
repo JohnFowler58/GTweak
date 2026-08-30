@@ -555,19 +555,26 @@
     <!--#endregion-->
 
     <!--#region Addons Page -->
-    <v:String x:Key="btn_select_dir">Выбрать папку</v:String>
     <v:String x:Key="chk_run_ti_adds">Запуск от имени TrustedInstaller</v:String>
+    <v:String x:Key="label_directory_adds">Каталог</v:String>
+    <v:String x:Key="label_count_adds">Кол-во</v:String>
     <v:String x:Key="text_info_adds">Выберите директорию или убедитесь, что она не пуста</v:String>
     <v:String x:Key="scripts_info_adds">После этого вы сможете запускать скрипты (.ps1, .cmd, .bat, .reg) на этой странице</v:String>
     <!--#endregion-->
 
     <!--#region Toolset Page -->
+    <v:String x:Key="text_ts">Поиск по названию или автору</v:String>
+    <v:String x:Key="tag_all_ts">Все</v:String>
+    <v:String x:Key="tag_drivers_ts">Драйверы</v:String>
+    <v:String x:Key="tag_tools_ts">Инструменты</v:String>
+    <v:String x:Key="tag_diagnostics_ts">Диагностика</v:String>
+    <v:String x:Key="tag_benchmark_ts">Стресс-тест</v:String>
+    <v:String x:Key="tag_overclocking_ts">Разгон</v:String>
+    <v:String x:Key="label_download_dir_ts">Каталог загрузки</v:String>
     <v:String x:Key="source_ts">Источник</v:String>
     <v:String x:Key="btn_download">Скачать</v:String>
     <v:String x:Key="btn_cancel">Отмена</v:String>
-    <v:String x:Key="btn_open_dir">Открыть папку</v:String>
     <v:String x:Key="btn_done">Готово</v:String>
-    <v:String x:Key="text_ts">Поиск по названию или автору</v:String>
     <!--#endregion-->
 
 </ResourceDictionary>

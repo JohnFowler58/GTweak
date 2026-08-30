@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,11 +21,14 @@ namespace GTweak.Core.ViewModel
         public ObservableCollection<AddonModel> Addons { get; } = new ObservableCollection<AddonModel>();
 
         public ICommand SelectFolderCommand { get; }
+        public ICommand OpenFolderCommand { get; }
         public ICommand UpdateCommand { get; }
 
         private bool _isRunAsTrustedInstaller;
         private readonly object _locker = new object();
         private string _lastKnownFolderPath = string.Empty;
+
+        public string DirectoryPath => GlobalOptions.UserAddonsPath;
 
         public bool IsRunAsTrustedInstaller
         {
@@ -37,6 +41,7 @@ namespace GTweak.Core.ViewModel
             if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             {
                 SelectFolderCommand = new RelayCommand(_ => SelectFolder());
+                OpenFolderCommand = new RelayCommand(_ => OpenFolder());
                 UpdateCommand = new RelayCommand(_ => ScanFolder());
 
                 if (!string.IsNullOrWhiteSpace(GlobalOptions.UserAddonsPath) && Directory.Exists(GlobalOptions.UserAddonsPath))
@@ -56,16 +61,28 @@ namespace GTweak.Core.ViewModel
                     SelectedPath = GlobalOptions.UserAddonsPath ?? Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
                 };
 
-                bool? dialogResult = folderDialog.ShowDialog();
-
-                if (dialogResult != null && dialogResult.Value)
+                if (folderDialog.ShowDialog() == true && Directory.Exists(folderDialog.SelectedPath))
                 {
-                    string selectedPath = folderDialog.SelectedPath;
-                    if (!string.IsNullOrWhiteSpace(selectedPath) && Directory.Exists(selectedPath))
+                    GlobalOptions.UserAddonsPath = folderDialog.SelectedPath;
+                    OnPropertyChanged(nameof(DirectoryPath));
+                    ScanFolder();
+                }
+            }
+            catch (Exception ex) { ErrorLogger.LogDebug(ex); }
+        }
+
+        private void OpenFolder()
+        {
+            try
+            {
+                if (Directory.Exists(GlobalOptions.UserAddonsPath))
+                {
+                    Process.Start(new ProcessStartInfo
                     {
-                        GlobalOptions.UserAddonsPath = selectedPath;
-                        ScanFolder();
-                    }
+                        FileName = GlobalOptions.UserAddonsPath,
+                        UseShellExecute = true,
+                        Verb = "open"
+                    });
                 }
             }
             catch (Exception ex) { ErrorLogger.LogDebug(ex); }

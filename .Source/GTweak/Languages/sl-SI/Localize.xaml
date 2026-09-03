@@ -218,14 +218,14 @@
     <v:String x:Key="chk_panel_intf">Nadzorna plošča</v:String>
     <v:String x:Key="chk_user_intf">Uporabniške datoteke</v:String>
 
-    <v:String x:Key="exblock4_intf">Folders in «This PC»:</v:String>
-    <v:String x:Key="chk_folder_3d_intf">3D Objects</v:String>
-    <v:String x:Key="chk_folder_desktop_intf">Desktop</v:String>
-    <v:String x:Key="chk_folder_downloads_intf">Downloads</v:String>
-    <v:String x:Key="chk_folder_documents_intf">Documents</v:String>
-    <v:String x:Key="chk_folder_pictures_intf">Pictures</v:String>
-    <v:String x:Key="chk_folder_music_intf">Music</v:String>
-    <v:String x:Key="chk_folder_video_intf">Videos</v:String>
+    <v:String x:Key="exblock4_intf">Mape v »Ta računalnik«:</v:String>
+    <v:String x:Key="chk_folder_3d_intf">3D Predmeti</v:String>
+    <v:String x:Key="chk_folder_desktop_intf">Namizje</v:String>
+    <v:String x:Key="chk_folder_downloads_intf">Prenosi</v:String>
+    <v:String x:Key="chk_folder_documents_intf">Dokumenti</v:String>
+    <v:String x:Key="chk_folder_pictures_intf">Slike</v:String>
+    <v:String x:Key="chk_folder_music_intf">Glasba</v:String>
+    <v:String x:Key="chk_folder_video_intf">Videoposnetki</v:String>
     
     <v:String x:Key="tgl1_intf">Standardna velikost sistemskih gumbov</v:String>
     <v:String x:Key="tgl2_intf">Standardna frekvenca utripanja kazalca</v:String>
@@ -260,7 +260,7 @@
     <v:String x:Key="exblock1_desc_intf">Spremeni vidnost vgrajenih sistemskih elementov v navigacijskem podoknu, ki jih ni mogoče odpeti z običajnimi sredstvi.</v:String>
     <v:String x:Key="exblock2_desc_intf">Spremeni sistemska pravila za prikazovanje elementov v Raziskovalcu datotek, vključno z vidnostjo skritih elementov, končnic datotek in strukturo diskovnih pogonov. Pozor: zaslon lahko utripne.</v:String>
     <v:String x:Key="exblock3_desc_intf">Spremeni prikaz sistemskih ikon na namizju, ki so vgrajeni sistemski predmeti in ne običajne bližnjice.</v:String>
-    <v:String x:Key="exblock4_desc_intf">Changes the display of standard user folders and «3D Objects» within «This PC». Allows you to hide them so that only connected drives are shown in the list. For builds below 21H1, it additionally removes «3D Objects» from the navigation pane. Note that the screen may flicker.</v:String>
+    <v:String x:Key="exblock4_desc_intf">Spremeni prikaz standardnih uporabniških map in »3D-predmetov« znotraj »Ta računalnik«. Omogoča vam, da jih skrijete, tako da so na seznamu prikazani samo priključeni pogoni. Pri različicah pod 21H1 dodatno odstrani »3D-predmete« iz navigacijske plošče. Upoštevajte, da lahko zaslon utripa.</v:String>
     <v:String x:Key="tgl1_desc_intf">Popravek zmanjša velikost gumbov Za majhno okno, Povečaj in Zapri, zaradi česar so manj obsežni. Prilagodi velikost za vsa okna, vključno z Raziskovalcem datotek, Fotografijami, brskalniki in drugimi znanimi programi.</v:String>
     <v:String x:Key="tgl2_desc_intf">Popravek poveča frekvenco utripanja besedilnega kazalca. Privzeto kazalec utripne vsakih 530 milisekund.</v:String>
     <v:String x:Key="tgl3_desc_intf">Popravek zmanjša debelino drsnih trakov v klasičnih aplikacijah Windows, vključno z Raziskovalcem datotek, brskalniki in drugimi starejšimi programi. Vendar ne vpliva na sodobne vmesnike, saj ti uporabljajo lastne kontrolne elemente, neodvisne od sistemskih nastavitev.</v:String>
@@ -556,21 +556,21 @@
 
     <!--#region Addons Page -->
     <v:String x:Key="chk_run_ti_adds">Zaženi kot TrustedInstaller</v:String>
-    <v:String x:Key="label_directory_adds">Directory</v:String>
-    <v:String x:Key="label_count_adds">Count</v:String>
+    <v:String x:Key="label_directory_adds">Imenik</v:String>
+    <v:String x:Key="label_count_adds">Število</v:String>
     <v:String x:Key="text_info_adds">Izberite mapo ali pa se prepričajte, da ni prazna</v:String>
     <v:String x:Key="scripts_info_adds">Nato boste lahko na tej strani izvajali skripte (.ps1, .cmd, .bat, .reg)</v:String>
     <!--#endregion-->
 
     <!--#region Toolset Page -->
     <v:String x:Key="text_ts">Iskanje po imenu ali avtorju</v:String>
-    <v:String x:Key="tag_all_ts">All</v:String>
-    <v:String x:Key="tag_drivers_ts">Drivers</v:String>
-    <v:String x:Key="tag_tools_ts">Tools</v:String>
-    <v:String x:Key="tag_diagnostics_ts">Diagnostics</v:String>
-    <v:String x:Key="tag_benchmark_ts">Benchmark</v:String>
-    <v:String x:Key="tag_overclocking_ts">Overclocking</v:String>
-    <v:String x:Key="label_download_dir_ts">Download directory</v:String>
+    <v:String x:Key="tag_all_ts">Vse</v:String>
+    <v:String x:Key="tag_drivers_ts">Gonilniki</v:String>
+    <v:String x:Key="tag_tools_ts">Orodja</v:String>
+    <v:String x:Key="tag_diagnostics_ts">Diagnostika</v:String>
+    <v:String x:Key="tag_benchmark_ts">Primerjava</v:String>
+    <v:String x:Key="tag_overclocking_ts">Navijanje</v:String>
+    <v:String x:Key="label_download_dir_ts">Imenik prenosov</v:String>
     <v:String x:Key="source_ts">Vir</v:String>
     <v:String x:Key="btn_download">Prenesi</v:String>
     <v:String x:Key="btn_cancel">Prekliči</v:String>

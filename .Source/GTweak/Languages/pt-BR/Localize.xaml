@@ -80,21 +80,21 @@
     <!--#endregion-->
 
     <!--#region Main Window -->
-    <v:String x:Key="rbtn_utils_main">Utilitários</v:String>
-    <v:String x:Key="rbtn_conf_main">Privacidade</v:String>
-    <v:String x:Key="rbtn_int_main">Interface</v:String>
-    <v:String x:Key="rbtn_app_main">Aplicativos</v:String>
-    <v:String x:Key="rbtn_svc_main">Serviços</v:String>
-    <v:String x:Key="rbtn_sys_main">Sistema</v:String>
-    <v:String x:Key="rbtn_sysinfo_main">Informações do sistema</v:String>
-    <v:String x:Key="rbtn_adds_main">Complementos</v:String>
-    <v:String x:Key="rbtn_ts_main">Conjunto de ferramentas</v:String>
-    <v:String x:Key="title_settings_main">Configurações</v:String>
-    <v:String x:Key="tgl_noty_main">Mostrar notificações</v:String>
-    <v:String x:Key="slider_volume_main">Volume:</v:String>
-    <v:String x:Key="tgl_toast_main">Fixar sobre todas as janelas</v:String>
-    <v:String x:Key="tgl_update_main">Verificar atualizações</v:String>
-    <v:String x:Key="cmbox_lang_main">Idioma da interface:</v:String>
+    <v:String x:Key="UtilitiesPage">Utilitários</v:String>
+    <v:String x:Key="ConfidentialityPage">Privacidade</v:String>
+    <v:String x:Key="InterfacePage">Interface</v:String>
+    <v:String x:Key="ApplicationsPage">Aplicativos</v:String>
+    <v:String x:Key="ServicesPage">Serviços</v:String>
+    <v:String x:Key="SystemPage">Sistema</v:String>
+    <v:String x:Key="SystemInfoPage">Informações do sistema</v:String>
+    <v:String x:Key="AddonsPage">Complementos</v:String>
+    <v:String x:Key="ToolsetPage">Conjunto de ferramentas</v:String>
+    <v:String x:Key="settings_title">Configurações</v:String>
+    <v:String x:Key="settings_noty">Mostrar notificações</v:String>
+    <v:String x:Key="settings_update">Verificar atualizações</v:String>
+    <v:String x:Key="settings_toast">Fixar sobre todas as janelas</v:String>
+    <v:String x:Key="settings_volume">Volume:</v:String>
+    <v:String x:Key="settings_lang">Idioma da interface:</v:String>
     <v:String x:Key="btn_import">Importar</v:String>
     <v:String x:Key="btn_export">Exportar</v:String>
     <v:String x:Key="btn_selfremove">Remoção</v:String>
@@ -163,26 +163,26 @@
     <!--#endregion-->
 
     <!--#region Confidentiality Page -->
-    <v:String x:Key="tgl_TargetedAdvertising_conf">Identificador de publicidade e publicidade direcionada</v:String>
-    <v:String x:Key="tgl_DataSynchronization_conf">Todos os tipos de sincronização de seus dados</v:String>
-    <v:String x:Key="tgl_WindowsTelemetry_conf">Coleta e monitoramento da telemetria do Windows</v:String>
-    <v:String x:Key="tgl_SchedulerDataCollection_conf">Coleta de dados através de eventos do agendador</v:String>
-    <v:String x:Key="tgl_InstalledAppsData_conf">Coleta de dados sobre aplicativos instalados</v:String>
-    <v:String x:Key="tgl_AppUsageStatistics_conf">Coleta de estatísticas de uso de aplicativos</v:String>
-    <v:String x:Key="tgl_HandwritingData_conf">Coleta e envio de dados de caligrafia</v:String>
-    <v:String x:Key="tgl_HardwareConfigurationData_conf">Coleta de dados de configuração de hardware</v:String>
-    <v:String x:Key="tgl_HiddenMicrosoftDomains_conf">Acesso à rede para espionar domínios da Microsoft</v:String>
-    <v:String x:Key="tgl_UserLocationTracking_conf">Determinação da localização do usuário</v:String>
-    <v:String x:Key="tgl_FeedbackRequests_conf">Verificação de solicitações através do Feedback</v:String>
-    <v:String x:Key="tgl_SpeechSynthesisUpdates_conf">Atualizações ocultas em segundo plano da síntese de fala</v:String>
-    <v:String x:Key="tgl_HiddenSystemMonitoring_conf">Monitoramento oculto do seu sistema</v:String>
-    <v:String x:Key="tgl_SystemExperiments_conf">Experimentos ocultos em seu sistema</v:String>
-    <v:String x:Key="tgl_CovertDataCollectionServices_conf">Serviços para coleta e transmissão de dados secretos</v:String>
-    <v:String x:Key="tgl_WindowsEventLogging_conf">"Logging" de eventos do Windows</v:String>
-    <v:String x:Key="tgl_NvidiaTelemetry_conf">Coleta e monitoramento da telemetria da NVIDIA</v:String>
-    <v:String x:Key="tgl_UserBehaviorRecording_conf">Manter um registro do comportamento do usuário</v:String>
-    <v:String x:Key="tgl_OfflineMapsUpdates_conf">Coleta de dados e atualizações de mapas offline</v:String>
-    <v:String x:Key="tgl_IntelTelemetry_conf">Coleta e monitoramento da telemetria da Intel</v:String>
+    <v:String x:Key="TargetedAdvertising_conf">Identificador de publicidade e publicidade direcionada</v:String>
+    <v:String x:Key="DataSynchronization_conf">Todos os tipos de sincronização de seus dados</v:String>
+    <v:String x:Key="WindowsTelemetry_conf">Coleta e monitoramento da telemetria do Windows</v:String>
+    <v:String x:Key="SchedulerDataCollection_conf">Coleta de dados através de eventos do agendador</v:String>
+    <v:String x:Key="InstalledAppsData_conf">Coleta de dados sobre aplicativos instalados</v:String>
+    <v:String x:Key="AppUsageStatistics_conf">Coleta de estatísticas de uso de aplicativos</v:String>
+    <v:String x:Key="HandwritingData_conf">Coleta e envio de dados de caligrafia</v:String>
+    <v:String x:Key="HardwareConfigurationData_conf">Coleta de dados de configuração de hardware</v:String>
+    <v:String x:Key="HiddenMicrosoftDomains_conf">Acesso à rede para espionar domínios da Microsoft</v:String>
+    <v:String x:Key="FeedbackRequests_conf">Verificação de solicitações através do Feedback</v:String>
+    <v:String x:Key="SpeechSynthesisUpdates_conf">Atualizações ocultas em segundo plano da síntese de fala</v:String>
+    <v:String x:Key="HiddenSystemMonitoring_conf">Monitoramento oculto do seu sistema</v:String>
+    <v:String x:Key="SystemExperiments_conf">Experimentos ocultos em seu sistema</v:String>
+    <v:String x:Key="CovertDataCollectionServices_conf">Serviços para coleta e transmissão de dados secretos</v:String>
+    <v:String x:Key="WindowsEventLogging_conf">"Logging" de eventos do Windows</v:String>
+    <v:String x:Key="NvidiaTelemetry_conf">Coleta e monitoramento da telemetria da NVIDIA</v:String>
+    <v:String x:Key="UserBehaviorRecording_conf">Manter um registro do comportamento do usuário</v:String>
+    <v:String x:Key="OfflineMapsUpdates_conf">Coleta de dados e atualizações de mapas offline</v:String>
+    <v:String x:Key="IntelTelemetry_conf">Coleta e monitoramento da telemetria da Intel</v:String>
+    <v:String x:Key="OfficeTelemetry_conf">Collection and monitoring of Microsoft Office telemetry</v:String>
     
     <v:String x:Key="desc_TargetedAdvertising_conf">O Windows cria um identificador de publicidade exclusivo para cada usuário rastrear suas ações. Que é usado por desenvolvedores de aplicativos e pelo próprio Windows para seus próprios fins, inclusive para oferecer anúncios específicos em aplicativos.</v:String>
     <v:String x:Key="desc_DataSynchronization_conf">Mesmo usando uma conta local, o Windows sempre tenta sincronizar seus dados com os servidores da Microsoft. Em particular, o seguinte: temas, senhas, configurações do Windows, configurações do navegador, configurações da barra de idiomas, configurações de acesso simplificado, configurações adicionais.</v:String>
@@ -193,7 +193,6 @@
     <v:String x:Key="desc_HandwritingData_conf">Este ajuste desativa o mecanismo de coleta de dados que a Microsoft usa para melhorar sua tecnologia de reconhecimento de manuscrito. Independentemente de você usar esse recurso ou não, o sistema estava rastreando sua atividade para melhorar a precisão do reconhecimento. As alterações implementadas impedem essa coleta de dados, ajudando a preservar a privacidade.</v:String>
     <v:String x:Key="desc_HardwareConfigurationData_conf">O Programa de Melhoria da Qualidade do Software (CEIP) é um recurso separado que coleta informações sobre a configuração do seu hardware e como você usa o software e os serviços. O programa também baixa periodicamente um arquivo para coletar informações sobre problemas que você pode ter com o Windows. O programa é voluntário e você não precisa enviar seus dados para a Microsoft, violando sua privacidade.</v:String>
     <v:String x:Key="desc_HiddenMicrosoftDomains_conf">Este ajuste modifica o arquivo hosts adicionando o endereço 0.0.0.0 antes de nomes de domínio específicos, bloqueando-os efetivamente. Além disso, ajusta as configurações do firewall do Windows para bloquear conexões a vários endereços IP associados aos serviços de coleta de dados da Microsoft.</v:String>
-    <v:String x:Key="desc_UserLocationTracking_conf">Desativar os serviços de geolocalização reduz significativamente o potencial de uso de dados de localização para fins publicitários - o acesso a essas informações é restrito não apenas para os serviços da Microsoft, mas também para quaisquer aplicativos e scripts de terceiros.</v:String>
     <v:String x:Key="desc_FeedbackRequests_conf">O ajuste bloqueia a coleta de feedback e suas notificações no Windows, o que impede a transmissão de dados sem o seu consentimento. Enquanto isso, mesmo que você não use o recurso "Feedback", a Microsoft ainda registra com que frequência você entra em contato com o suporte oficial.</v:String>
     <v:String x:Key="desc_SpeechSynthesisUpdates_conf">O Windows é capaz de reconhecer a fala usando um módulo dedicado de reconhecimento e síntese de fala. Mesmo que você não use a Cortana ou o "Facilidade de Acesso", seu sistema operacional, por padrão, sempre verifica se há atualizações em seu mecanismo de reconhecimento de voz.</v:String>
     <v:String x:Key="desc_HiddenSystemMonitoring_conf">Uma função que tem acesso a quaisquer dados do usuário. Ele troca algumas informações com os servidores da Microsoft e não afeta a operação do sistema operacional ou aplicativos de forma alguma. Não ajuda o usuário de forma alguma, o que o torna inútil.</v:String>
@@ -204,67 +203,68 @@
     <v:String x:Key="desc_UserBehaviorRecording_conf">O ajuste desativa o recurso UAR (User Activity Recording) - um sistema que registra sequencialmente todas as ações que você realiza no seu computador: desde tirar screenshots e digitar texto até iniciar programas e até mesmo fornecer acesso à webcam enquanto a tela está bloqueada, e muito mais.</v:String>
     <v:String x:Key="desc_OfflineMapsUpdates_conf">O Windows atualiza periodicamente os mapas offline e envia notificações sobre novos dados em segundo plano. Esses processos podem coletar informações sobre sua localização, rotas e uso de mapas. Se você não usa mapas offline, recomenda-se desativá‑los para evitar atualizações ocultas e transmissão de dados para os servidores da Microsoft sem seu envolvimento direto.</v:String>
     <v:String x:Key="desc_IntelTelemetry_conf">O módulo Intel, que opera em segundo plano para coletar e transmitir dados, é posicionado como uma ferramenta para melhorar os produtos da empresa. No entanto, para o usuário médio, ele oferece pouco benefício prático, e desativar esse recurso pode reduzir a atividade em segundo plano e evitar a transmissão desnecessária de dados.</v:String>
+    <v:String x:Key="desc_OfficeTelemetry_conf">Microsoft Office continuously tracks your work with documents, logging application startup speed, system crashes, and tool usage frequency, subsequently sending reports to Microsoft servers. Disabling this feature stops hidden statistics collection and halts unnecessary background monitoring processes without affecting the full functionality of Word, Excel, and other Office applications.</v:String>
     <!--#endregion-->
 
     <!--#region Interface Page -->
-    <v:String x:Key="color_CursorSelection_intf">Cor de seleção do cursor:</v:String>
-    <v:String x:Key="color_Tooltip_intf">Cor da dica de ferramenta:</v:String>
+    <v:String x:Key="CursorSelection_intf">Cor de seleção do cursor:</v:String>
+    <v:String x:Key="Tooltip_intf">Cor da dica de ferramenta:</v:String>
     
-    <v:String x:Key="exblock_NavigationItems_intf">Itens de navegação do Explorador de Arquivos:</v:String>
-    <v:String x:Key="chk_ExplorerHome_intf">Início</v:String>
-    <v:String x:Key="chk_ExplorerGallery_intf">Galeria</v:String>
-    <v:String x:Key="chk_ExplorerOneDrive_intf">OneDrive</v:String>
+    <v:String x:Key="NavigationItems_intf">Itens de navegação do Explorador de Arquivos:</v:String>
+    <v:String x:Key="ExplorerHome_intf">Início</v:String>
+    <v:String x:Key="ExplorerGallery_intf">Galeria</v:String>
+    <v:String x:Key="ExplorerOneDrive_intf">OneDrive</v:String>
 
-    <v:String x:Key="exblock_FileExplorerDisplay_intf">Configurações de exibição no Explorador de Arquivos:</v:String>
-    <v:String x:Key="chk_HiddenFiles_intf">Mostrar arquivos e pastas ocultos</v:String>
-    <v:String x:Key="chk_SystemFiles_intf">Mostrar arquivos protegidos e ocultos do sistema operacional</v:String>
-    <v:String x:Key="chk_FileExtensions_intf">Exibição de extensões de nomes de arquivos</v:String>
-    <v:String x:Key="chk_EmptyDrives_intf">Exibição de unidades vazias</v:String>
+    <v:String x:Key="FileExplorerDisplay_intf">Configurações de exibição no Explorador de Arquivos:</v:String>
+    <v:String x:Key="HiddenFiles_intf">Mostrar arquivos e pastas ocultos</v:String>
+    <v:String x:Key="SystemFiles_intf">Mostrar arquivos protegidos e ocultos do sistema operacional</v:String>
+    <v:String x:Key="FileExtensions_intf">Exibição de extensões de nomes de arquivos</v:String>
+    <v:String x:Key="EmptyDrives_intf">Exibição de unidades vazias</v:String>
 
-    <v:String x:Key="exblock_DesktopIcons_intf">Exibição dos ícones da área de trabalho:</v:String>
-    <v:String x:Key="chk_IconComputer_intf">Este PC</v:String>
-    <v:String x:Key="chk_IconNetwork_intf">Rede</v:String>
-    <v:String x:Key="chk_IconRecycleBin_intf">Lixeira</v:String>
-    <v:String x:Key="chk_IconControlPanel_intf">Painel de Controle</v:String>
-    <v:String x:Key="chk_IconUserFiles_intf">Arquivos do usuário</v:String>
-    <v:String x:Key="chk_IconOneDrive_intf">OneDrive</v:String>
+    <v:String x:Key="DesktopIcons_intf">Exibição dos ícones da área de trabalho:</v:String>
+    <v:String x:Key="IconComputer_intf">Este PC</v:String>
+    <v:String x:Key="IconNetwork_intf">Rede</v:String>
+    <v:String x:Key="IconRecycleBin_intf">Lixeira</v:String>
+    <v:String x:Key="IconControlPanel_intf">Painel de Controle</v:String>
+    <v:String x:Key="IconUserFiles_intf">Arquivos do usuário</v:String>
+    <v:String x:Key="IconOneDrive_intf">OneDrive</v:String>
 
-    <v:String x:Key="exblock_ThisPCFolders_intf">Pastas em "Este Computador":</v:String>
-    <v:String x:Key="chk_FolderObjects3D_intf">Objetos 3D</v:String>
-    <v:String x:Key="chk_FolderDesktop_intf">Área de Trabalho</v:String>
-    <v:String x:Key="chk_FolderDownloads_intf">Downloads</v:String>
-    <v:String x:Key="chk_FolderDocuments_intf">Documentos</v:String>
-    <v:String x:Key="chk_FolderPictures_intf">Imagens</v:String>
-    <v:String x:Key="chk_FolderMusic_intf">Músicas</v:String>
-    <v:String x:Key="chk_FolderVideo_intf">Vídeos</v:String>
-    
-    <v:String x:Key="tgl_SystemButtonSize_intf">Tamanho padrão dos botões do sistema</v:String>
-    <v:String x:Key="tgl_CursorFlickerFrequency_intf">Frequência de piscar padrão do cursor</v:String>
-    <v:String x:Key="tgl_ScrollbarSize_intf">Tamanho padrão da barra de rolagem</v:String>
-    <v:String x:Key="tgl_TaskbarTransparency_intf">Efeito de transparência da barra de tarefas</v:String>
-    <v:String x:Key="tgl_TaskbarDarkTheme_intf">Tema escuro da barra de tarefas</v:String>
-    <v:String x:Key="tgl_AppDarkTheme_intf">Tema escuro de aplicativos e explorador</v:String>
-    <v:String x:Key="tgl_ContextMenuDelay_intf">Atraso ao chamar o menu de contexto</v:String>
-    <v:String x:Key="tgl_TaskbarPreviewDelay_intf">Atraso nas pré-visualizações da barra</v:String>
-    <v:String x:Key="tgl_IconOverlayBadges_intf">Exibição de indicadores de sobreposição nos ícones</v:String>
-    <v:String x:Key="tgl_ShortcutNameSuffix_intf">Prefixo "Rótulo para..."/ pós-fixo "– Rótulo"</v:String>
-    <v:String x:Key="tgl_TaskbarAlignment_intf">Alinhamento da barra de tarefas</v:String>
-    <v:String x:Key="tgl_StartMenuLayout_intf">Layout padrão do menu "Iniciar"</v:String>
-    <v:String x:Key="tgl_CompactContextMenu_intf">Menu de contexto simplificado</v:String>
-    <v:String x:Key="tgl_TipsSuggestions_intf">Mostrar dicas e sugestões</v:String>
-    <v:String x:Key="tgl_CompactExplorerMode_intf">Usar modo compacto do Explorer</v:String>
-    <v:String x:Key="tgl_CopilotRecall_intf">Assistentes "Copilot" e "Recall"</v:String>
-    <v:String x:Key="tgl_TaskbarEndTask_intf">"Finalizar tarefa" com botão direito no app</v:String>
-    <v:String x:Key="tgl_SnapLayouts_intf">Mostrar layouts de ajuste de janela (Snap)</v:String>
-    <v:String x:Key="tgl_TaskbarIconsButtons_intf">Ícones e botões na barra de tarefas</v:String>
-    <v:String x:Key="tgl_PersonalizedAds_intf">Mostrar anúncios personalizados</v:String>
-    <v:String x:Key="tgl_RestoreFolderWindows_intf">Restaurar janelas de pastas anteriores ao fazer login</v:String>
-    <v:String x:Key="tgl_TipsNotifications_intf">Notificações com dicas e sugestões do Windows</v:String>
-    <v:String x:Key="tgl_JpegWallpaperCompression_intf">Compressão do papel de parede .JPEG da área de trabalho</v:String>
-    <v:String x:Key="tgl_DesktopTooltips_intf">Dicas de ferramentas para elementos da área de trabalho</v:String>
-    <v:String x:Key="tgl_BingStartSearch_intf">Pesquisa com "Bing" integrada ao menu Iniciar</v:String>
-    <v:String x:Key="tgl_OpenQuickAccess_intf">Abrir "Acesso rápido" em vez de "Este Computador"</v:String>
-    <v:String x:Key="tgl_AdaptiveBrightness_intf">Mudanças espontâneas de brilho</v:String>
+    <v:String x:Key="ThisPCFolders_intf">Pastas em "Este Computador":</v:String>
+    <v:String x:Key="FolderObjects3D_intf">Objetos 3D</v:String>
+    <v:String x:Key="FolderDesktop_intf">Área de Trabalho</v:String>
+    <v:String x:Key="FolderDownloads_intf">Downloads</v:String>
+    <v:String x:Key="FolderDocuments_intf">Documentos</v:String>
+    <v:String x:Key="FolderPictures_intf">Imagens</v:String>
+    <v:String x:Key="FolderMusic_intf">Músicas</v:String>
+    <v:String x:Key="FolderVideo_intf">Vídeos</v:String>
+
+    <v:String x:Key="SystemButtonSize_intf">Tamanho padrão dos botões do sistema</v:String>
+    <v:String x:Key="CursorFlickerFrequency_intf">Frequência de piscar padrão do cursor</v:String>
+    <v:String x:Key="ScrollbarSize_intf">Tamanho padrão da barra de rolagem</v:String>
+    <v:String x:Key="TaskbarTransparency_intf">Efeito de transparência da barra de tarefas</v:String>
+    <v:String x:Key="TaskbarDarkTheme_intf">Tema escuro da barra de tarefas</v:String>
+    <v:String x:Key="AppDarkTheme_intf">Tema escuro de aplicativos e explorador</v:String>
+    <v:String x:Key="ContextMenuDelay_intf">Atraso ao chamar o menu de contexto</v:String>
+    <v:String x:Key="TaskbarPreviewDelay_intf">Atraso nas pré-visualizações da barra</v:String>
+    <v:String x:Key="IconOverlayBadges_intf">Exibição de indicadores de sobreposição nos ícones</v:String>
+    <v:String x:Key="ShortcutNameSuffix_intf">Prefixo "Rótulo para..."/ pós-fixo "– Rótulo"</v:String>
+    <v:String x:Key="TaskbarAlignment_intf">Alinhamento da barra de tarefas</v:String>
+    <v:String x:Key="StartMenuLayout_intf">Layout padrão do menu "Iniciar"</v:String>
+    <v:String x:Key="CompactContextMenu_intf">Menu de contexto simplificado</v:String>
+    <v:String x:Key="TipsSuggestions_intf">Mostrar dicas e sugestões</v:String>
+    <v:String x:Key="CompactExplorerMode_intf">Usar modo compacto do Explorer</v:String>
+    <v:String x:Key="CopilotRecall_intf">Assistentes "Copilot" e "Recall"</v:String>
+    <v:String x:Key="TaskbarEndTask_intf">"Finalizar tarefa" com botão direito no app</v:String>
+    <v:String x:Key="SnapLayouts_intf">Mostrar layouts de ajuste de janela (Snap)</v:String>
+    <v:String x:Key="TaskbarIconsButtons_intf">Ícones e botões na barra de tarefas</v:String>
+    <v:String x:Key="PersonalizedAds_intf">Mostrar anúncios personalizados</v:String>
+    <v:String x:Key="RestoreFolderWindows_intf">Restaurar janelas de pastas anteriores ao fazer login</v:String>
+    <v:String x:Key="TipsNotifications_intf">Notificações com dicas e sugestões do Windows</v:String>
+    <v:String x:Key="JpegWallpaperCompression_intf">Compressão do papel de parede .JPEG da área de trabalho</v:String>
+    <v:String x:Key="DesktopTooltips_intf">Dicas de ferramentas para elementos da área de trabalho</v:String>
+    <v:String x:Key="BingStartSearch_intf">Pesquisa com "Bing" integrada ao menu Iniciar</v:String>
+    <v:String x:Key="OpenQuickAccess_intf">Abrir "Acesso rápido" em vez de "Este Computador"</v:String>
+    <v:String x:Key="AdaptiveBrightness_intf">Mudanças espontâneas de brilho</v:String>
 
     <v:String x:Key="desc_CursorSelection_intf">Altera a cor de fundo ao selecionar texto ou objetos com o cursor no sistema.</v:String>
     <v:String x:Key="desc_Tooltip_intf">Altera a cor das dicas de ferramenta (tooltip) em aplicativos compatíveis.</v:String>
@@ -389,39 +389,39 @@
     <!--#endregion-->
 
     <!--#region Services Page -->
-    <v:String x:Key="tgl_WindowsSearch_svc">Serviços relacionados à Pesquisa do Windows</v:String>
-    <v:String x:Key="tgl_Xbox_svc">Serviços relacionados ao Xbox</v:String>
-    <v:String x:Key="tgl_WindowsUpdate_svc">Serviços relacionados ao Windows Update</v:String>
-    <v:String x:Key="tgl_WindowsStore_svc">Serviços relacionados à Windows Store</v:String>
-    <v:String x:Key="tgl_PerformanceCounters_svc">Serviços de Contador de Desempenho</v:String>
-    <v:String x:Key="tgl_Biometrics_svc">Serviço Biométrico do Windows</v:String>
-    <v:String x:Key="tgl_Bluetooth_svc">Serviços relacionados ao Bluetooth</v:String>
-    <v:String x:Key="tgl_Printers_svc">Serviços relacionados à impressora</v:String>
-    <v:String x:Key="tgl_Scanner_svc">Serviço relacionado à operação do scanner</v:String>
-    <v:String x:Key="tgl_Fax_svc">Serviços relacionados a fax</v:String>
-    <v:String x:Key="tgl_TabletMobileMode_svc">Serviços relacionados ao uso do modo tablet/smartphone</v:String>
-    <v:String x:Key="tgl_SecondaryMonitors_svc">Serviços relacionados à operação de monitores adicionais</v:String>
-    <v:String x:Key="tgl_SystemComponents_svc">Serviço relacionado a componentes do sistema</v:String>
-    <v:String x:Key="tgl_LocalNetwork_svc">Serviços relacionados à operação da rede local</v:String>
-    <v:String x:Key="tgl_UsbModemsRouters_svc">Serviços relacionados a modems e roteadores USB</v:String>
-    <v:String x:Key="tgl_VpnClients_svc">Serviços relacionados a clientes VPN</v:String>
-    <v:String x:Key="tgl_WindowsMedia_svc">Serviços relacionados à operação do Windows Media</v:String>
-    <v:String x:Key="tgl_RemoteDesktop_svc">Serviços relacionados à Área de Trabalho Remota</v:String>
-    <v:String x:Key="tgl_ErrorEventLogging_svc">Serviços que coletam erros e logs de eventos</v:String>
-    <v:String x:Key="tgl_WebDav_svc">Serviço de Gerenciamento Remoto de Arquivos WebDAV</v:String>
-    <v:String x:Key="tgl_SmartCards_svc">Serviços relacionados à operação de um Smart card</v:String>
-    <v:String x:Key="tgl_WindowsKiosk_svc">Serviços relacionados à operação do Quiosque Windows</v:String>
-    <v:String x:Key="tgl_FileEncryption_svc">Serviços relacionados à criptografia de arquivos</v:String>
-    <v:String x:Key="tgl_WindowsLocalization_svc">Serviço relacionado à localização do Windows</v:String>
-    <v:String x:Key="tgl_BackgroundSecurityCheck_svc">Serviços relacionados verificações segurança segundo plano</v:String>
-    <v:String x:Key="tgl_BackgroundDiagnostics_svc">Serviços relacionados a diagnósticos em segundo plano</v:String>
-    <v:String x:Key="tgl_CorporateTools_svc">Serviços relacionados a ferramentas corporativas</v:String>
-    <v:String x:Key="tgl_HyperV_svc">Serviço relacionado à operação do Hyper-V</v:String>
-    <v:String x:Key="tgl_PushNotifications_svc">Serviços relacionados a notificações push</v:String>
-    <v:String x:Key="tgl_RetailDemo_svc">Serviços relacionados ao Modo de Demonstração de Loja</v:String>
-    <v:String x:Key="tgl_EdgeUpdates_svc">Serviços relacionados à atualização do Microsoft Edge</v:String>
-    <v:String x:Key="tgl_MultimediaClassScheduler_svc">Serviço de Agendador de Classes Multimídia</v:String>
-    <v:String x:Key="tgl_Geolocation_svc">Serviço de Geolocalização do Windows</v:String>
+    <v:String x:Key="WindowsSearch_svc">Serviços relacionados à Pesquisa do Windows</v:String>
+    <v:String x:Key="Xbox_svc">Serviços relacionados ao Xbox</v:String>
+    <v:String x:Key="WindowsUpdate_svc">Serviços relacionados ao Windows Update</v:String>
+    <v:String x:Key="WindowsStore_svc">Serviços relacionados à Windows Store</v:String>
+    <v:String x:Key="PerformanceCounters_svc">Serviços de Contador de Desempenho</v:String>
+    <v:String x:Key="Biometrics_svc">Serviço Biométrico do Windows</v:String>
+    <v:String x:Key="Bluetooth_svc">Serviços relacionados ao Bluetooth</v:String>
+    <v:String x:Key="Printers_svc">Serviços relacionados à impressora</v:String>
+    <v:String x:Key="Scanner_svc">Serviço relacionado à operação do scanner</v:String>
+    <v:String x:Key="Fax_svc">Serviços relacionados a fax</v:String>
+    <v:String x:Key="TabletMobileMode_svc">Serviços relacionados ao uso do modo tablet/smartphone</v:String>
+    <v:String x:Key="SecondaryMonitors_svc">Serviços relacionados à operação de monitores adicionais</v:String>
+    <v:String x:Key="SystemComponents_svc">Serviço relacionado a componentes do sistema</v:String>
+    <v:String x:Key="LocalNetwork_svc">Serviços relacionados à operação da rede local</v:String>
+    <v:String x:Key="UsbModemsRouters_svc">Serviços relacionados a modems e roteadores USB</v:String>
+    <v:String x:Key="VpnClients_svc">Serviços relacionados a clientes VPN</v:String>
+    <v:String x:Key="WindowsMedia_svc">Serviços relacionados à operação do Windows Media</v:String>
+    <v:String x:Key="RemoteDesktop_svc">Serviços relacionados à Área de Trabalho Remota</v:String>
+    <v:String x:Key="ErrorEventLogging_svc">Serviços que coletam erros e logs de eventos</v:String>
+    <v:String x:Key="WebDav_svc">Serviço de Gerenciamento Remoto de Arquivos WebDAV</v:String>
+    <v:String x:Key="SmartCards_svc">Serviços relacionados à operação de um Smart card</v:String>
+    <v:String x:Key="WindowsKiosk_svc">Serviços relacionados à operação do Quiosque Windows</v:String>
+    <v:String x:Key="FileEncryption_svc">Serviços relacionados à criptografia de arquivos</v:String>
+    <v:String x:Key="WindowsLocalization_svc">Serviço relacionado à localização do Windows</v:String>
+    <v:String x:Key="BackgroundSecurityCheck_svc">Serviços relacionados verificações segurança segundo plano</v:String>
+    <v:String x:Key="BackgroundDiagnostics_svc">Serviços relacionados a diagnósticos em segundo plano</v:String>
+    <v:String x:Key="CorporateTools_svc">Serviços relacionados a ferramentas corporativas</v:String>
+    <v:String x:Key="HyperV_svc">Serviço relacionado à operação do Hyper-V</v:String>
+    <v:String x:Key="PushNotifications_svc">Serviços relacionados a notificações push</v:String>
+    <v:String x:Key="RetailDemo_svc">Serviços relacionados ao Modo de Demonstração de Loja</v:String>
+    <v:String x:Key="EdgeUpdates_svc">Serviços relacionados à atualização do Microsoft Edge</v:String>
+    <v:String x:Key="MultimediaClassScheduler_svc">Serviço de Agendador de Classes Multimídia</v:String>
+    <v:String x:Key="Geolocation_svc">Serviço de Geolocalização do Windows</v:String>
     
     <v:String x:Key="desc_WindowsSearch_svc">Desative se você não usa histórico de arquivos e indexação de conteúdo.</v:String>
     <v:String x:Key="desc_Xbox_svc">Desative se você não usa Xbox e gamepads da Microsoft.</v:String>
@@ -459,40 +459,40 @@
     <!--#endregion-->
 
     <!--#region System Page -->
-    <v:String x:Key="slider_MouseSensitivity_sys">Velocidade do ponteiro do mouse:</v:String>
-    <v:String x:Key="slider_KeyboardDelay_sys">Atraso de repetição do teclado:</v:String>
-    <v:String x:Key="slider_KeyboardSpeed_sys">Taxa de repetição do teclado:</v:String>
-    <v:String x:Key="text_sys">Digite aqui para testar as configurações do seu teclado</v:String>
-    <v:String x:Key="tgl_PointerPrecision_sys">Aprimorar precisão do ponteiro</v:String>
-    <v:String x:Key="tgl_StickyKeysFilter_sys">Teclas de Aderência e Teclas de Filtragem</v:String>
-    <v:String x:Key="tgl_WindowsDefender_sys">Windows Defender, Antimalware, SmartScreen e VBS</v:String>
-    <v:String x:Key="tgl_UserAccountControl_sys">UAC (Controle de Conta de Usuário)</v:String>
-    <v:String x:Key="tgl_SecurityNotifications_sys">Notificações de segurança da Central de Notificações</v:String>
-    <v:String x:Key="tgl_StoreAutoUpdate_sys">Atualizar aplicativos da Microsoft Store automaticamente</v:String>
-    <v:String x:Key="tgl_RealtekAudioDelay_sys">Atraso de som no driver de som Realtek</v:String>
-    <v:String x:Key="tgl_LockScreenTimeout_sys">Tempo limite desligamento tela bloqueio console</v:String>
-    <v:String x:Key="tgl_HibernationFastStartup_sys">Tecnologia de "Hibernação" e "Inicialização Rápida"</v:String>
-    <v:String x:Key="tgl_AutoEndTasks_sys">Diálogo de aviso de desligamento</v:String>
-    <v:String x:Key="tgl_ExeLaunchWarnings_sys">Avisos ao executar qualquer .exe</v:String>
-    <v:String x:Key="tgl_MemoryDiagnostics_sys">Diagnóstico Automático de Memória</v:String>
-    <v:String x:Key="tgl_NetworkProtocols_sys">Protocolos Teredo, ISATAP e IPv6</v:String>
-    <v:String x:Key="tgl_FileSystemCache_sys">Tamanho padrão do cache do sistema de arquivos</v:String>
-    <v:String x:Key="tgl_StartupDelay_sys">Inicialização lenta do Windows e de programas</v:String>
-    <v:String x:Key="tgl_QuickAccessHistory_sys">Histórico uso Barra Ferramentas Acesso Rápido</v:String>
-    <v:String x:Key="tgl_RemovableMediaAutoplay_sys">Execução automática de mídia removível</v:String>
-    <v:String x:Key="tgl_PowerScheme_sys">Usar o plano de energia padrão</v:String>
-    <v:String x:Key="tgl_BluetoothFunction_sys">Usar a função "Bluetooth e dispositivos"</v:String>
-    <v:String x:Key="tgl_WindowsFirewall_sys">Firewall do Windows Defender</v:String>
-    <v:String x:Key="tgl_GameMode_sys">Usar a função "Modo de jogo"</v:String>
-    <v:String x:Key="tgl_GameBar_sys">Usar a função "Barra de jogo"</v:String>
-    <v:String x:Key="tgl_BackgroundApps_sys">Aplicativos executados em segundo plano</v:String>
-    <v:String x:Key="tgl_ReservedStorage_sys">Armazenamento reservado no Windows</v:String>
-    <v:String x:Key="tgl_DynamicTickHpet_sys">Timer de Eventos Dinâmico e de Alta Precisão</v:String>
-    <v:String x:Key="tgl_HealthCheck_sys">Ocultar "PC Health Check" no sistema atualização</v:String>
-    <v:String x:Key="tgl_InsiderTasks_sys">Tarefas de segundo plano do Windows Insider</v:String>
-    <v:String x:Key="tgl_SystemDriveDefrag_sys">Desfragmentação de disco do sistema</v:String>
-    <v:String x:Key="tgl_PauseWindowsUpdates_sys">Pausar atualizações do Windows</v:String>
-    <v:String x:Key="tgl_MultiPlaneOverlay_sys">Sobreposição de Múltiplos Planos (MPO)</v:String>
+    <v:String x:Key="MouseSensitivity_sys">Velocidade do ponteiro do mouse:</v:String>
+    <v:String x:Key="KeyboardDelay_sys">Atraso de repetição do teclado:</v:String>
+    <v:String x:Key="KeyboardSpeed_sys">Taxa de repetição do teclado:</v:String>
+    <v:String x:Key="hint_keyboard_sys">Digite aqui para testar as configurações do seu teclado</v:String>
+    <v:String x:Key="PointerPrecision_sys">Aprimorar precisão do ponteiro</v:String>
+    <v:String x:Key="StickyKeysFilter_sys">Teclas de Aderência e Teclas de Filtragem</v:String>
+    <v:String x:Key="WindowsDefender_sys">Windows Defender, Antimalware, SmartScreen e VBS</v:String>
+    <v:String x:Key="UserAccountControl_sys">UAC (Controle de Conta de Usuário)</v:String>
+    <v:String x:Key="SecurityNotifications_sys">Notificações de segurança da Central de Notificações</v:String>
+    <v:String x:Key="StoreAutoUpdate_sys">Atualizar aplicativos da Microsoft Store automaticamente</v:String>
+    <v:String x:Key="RealtekAudioDelay_sys">Atraso de som no driver de som Realtek</v:String>
+    <v:String x:Key="LockScreenTimeout_sys">Tempo limite desligamento tela bloqueio console</v:String>
+    <v:String x:Key="HibernationFastStartup_sys">Tecnologia de "Hibernação" e "Inicialização Rápida"</v:String>
+    <v:String x:Key="AutoEndTasks_sys">Diálogo de aviso de desligamento</v:String>
+    <v:String x:Key="ExeLaunchWarnings_sys">Avisos ao executar qualquer .exe</v:String>
+    <v:String x:Key="MemoryDiagnostics_sys">Diagnóstico Automático de Memória</v:String>
+    <v:String x:Key="NetworkProtocols_sys">Protocolos Teredo, ISATAP e IPv6</v:String>
+    <v:String x:Key="FileSystemCache_sys">Tamanho padrão do cache do sistema de arquivos</v:String>
+    <v:String x:Key="StartupDelay_sys">Inicialização lenta do Windows e de programas</v:String>
+    <v:String x:Key="QuickAccessHistory_sys">Histórico uso Barra Ferramentas Acesso Rápido</v:String>
+    <v:String x:Key="RemovableMediaAutoplay_sys">Execução automática de mídia removível</v:String>
+    <v:String x:Key="PowerScheme_sys">Usar o plano de energia padrão</v:String>
+    <v:String x:Key="BluetoothFunction_sys">Usar a função "Bluetooth e dispositivos"</v:String>
+    <v:String x:Key="WindowsFirewall_sys">Firewall do Windows Defender</v:String>
+    <v:String x:Key="GameMode_sys">Usar a função "Modo de jogo"</v:String>
+    <v:String x:Key="GameBar_sys">Usar a função "Barra de jogo"</v:String>
+    <v:String x:Key="BackgroundApps_sys">Aplicativos executados em segundo plano</v:String>
+    <v:String x:Key="ReservedStorage_sys">Armazenamento reservado no Windows</v:String>
+    <v:String x:Key="DynamicTickHpet_sys">Timer de Eventos Dinâmico e de Alta Precisão</v:String>
+    <v:String x:Key="HealthCheck_sys">Ocultar "PC Health Check" no sistema atualização</v:String>
+    <v:String x:Key="InsiderTasks_sys">Tarefas de segundo plano do Windows Insider</v:String>
+    <v:String x:Key="SystemDriveDefrag_sys">Desfragmentação de disco do sistema</v:String>
+    <v:String x:Key="PauseWindowsUpdates_sys">Pausar atualizações do Windows</v:String>
+    <v:String x:Key="MultiPlaneOverlay_sys">Sobreposição de Múltiplos Planos (MPO)</v:String>
 
     <v:String x:Key="desc_MouseSensitivity_sys">Altera a velocidade do ponteiro do mouse, economizando seu tempo para procurar os parâmetros do mouse.</v:String>
     <v:String x:Key="desc_KeyboardDelay_sys">Alterará o atraso antes de começar a repetir o caractere digitado, o valor recomendado é 0.</v:String>
@@ -566,7 +566,7 @@
     <!--#endregion-->
 
     <!--#region Addons Page -->
-    <v:String x:Key="chk_run_ti_adds">Executar como TrustedInstaller</v:String>
+    <v:String x:Key="settings_elevated_adds">Executar como TrustedInstaller</v:String>
     <v:String x:Key="label_directory_adds">Pasta</v:String>
     <v:String x:Key="label_count_adds">Quantidade</v:String>
     <v:String x:Key="text_info_adds">Selecione um diretório ou certifique‑se de que não está vazio</v:String>
@@ -574,7 +574,7 @@
     <!--#endregion-->
 
     <!--#region Toolset Page -->
-    <v:String x:Key="text_ts">Pesquisar por nome ou autor</v:String>
+    <v:String x:Key="hint_search_ts">Pesquisar por nome ou autor</v:String>
     <v:String x:Key="tag_all_ts">Todos</v:String>
     <v:String x:Key="tag_drivers_ts">Drivers</v:String>
     <v:String x:Key="tag_tools_ts">Ferramentas</v:String>

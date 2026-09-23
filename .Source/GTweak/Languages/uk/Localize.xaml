@@ -80,21 +80,21 @@
     <!--#endregion-->
 
     <!--#region Main Window -->
-    <v:String x:Key="rbtn_utils_main">Утиліти</v:String>
-    <v:String x:Key="rbtn_conf_main">Конфіденційність</v:String>
-    <v:String x:Key="rbtn_int_main">Інтерфейс</v:String>
-    <v:String x:Key="rbtn_app_main">Додатки</v:String>
-    <v:String x:Key="rbtn_svc_main">Служби</v:String>
-    <v:String x:Key="rbtn_sys_main">Система</v:String>
-    <v:String x:Key="rbtn_sysinfo_main">Системна інформація</v:String>
-    <v:String x:Key="rbtn_adds_main">Розширення</v:String>
-    <v:String x:Key="rbtn_ts_main">Набір інструментів</v:String>
-    <v:String x:Key="title_settings_main">Налаштування</v:String>
-    <v:String x:Key="tgl_noty_main">Показувати сповіщення</v:String>
-    <v:String x:Key="slider_volume_main">Гучність:</v:String>
-    <v:String x:Key="tgl_toast_main">Закріпити над усіма вікнами</v:String>
-    <v:String x:Key="tgl_update_main">Перевірка наявності оновлень</v:String>
-    <v:String x:Key="cmbox_lang_main">Мова інтерфейсу:</v:String>
+    <v:String x:Key="UtilitiesPage">Утиліти</v:String>
+    <v:String x:Key="ConfidentialityPage">Конфіденційність</v:String>
+    <v:String x:Key="InterfacePage">Інтерфейс</v:String>
+    <v:String x:Key="ApplicationsPage">Додатки</v:String>
+    <v:String x:Key="ServicesPage">Служби</v:String>
+    <v:String x:Key="SystemPage">Система</v:String>
+    <v:String x:Key="SystemInfoPage">Системна інформація</v:String>
+    <v:String x:Key="AddonsPage">Розширення</v:String>
+    <v:String x:Key="ToolsetPage">Набір інструментів</v:String>
+    <v:String x:Key="settings_title">Налаштування</v:String>
+    <v:String x:Key="settings_noty">Показувати сповіщення</v:String>
+    <v:String x:Key="settings_update">Перевірка наявності оновлень</v:String>
+    <v:String x:Key="settings_toast">Закріпити над усіма вікнами</v:String>
+    <v:String x:Key="settings_volume">Гучність:</v:String>
+    <v:String x:Key="settings_lang">Мова інтерфейсу:</v:String>
     <v:String x:Key="btn_import">Імпорт</v:String>
     <v:String x:Key="btn_export">Експорт</v:String>
     <v:String x:Key="btn_selfremove">Самовидалення</v:String>
@@ -163,26 +163,26 @@
     <!--#endregion-->
 
     <!--#region Confidentiality Page -->
-    <v:String x:Key="tgl_TargetedAdvertising_conf">Ідентифікатор реклами та цільова реклама</v:String>
-    <v:String x:Key="tgl_DataSynchronization_conf">Усі типи синхронізації ваших даних</v:String>
-    <v:String x:Key="tgl_WindowsTelemetry_conf">Збір даних та моніторинг телеметрії Windows</v:String>
-    <v:String x:Key="tgl_SchedulerDataCollection_conf">Збір даних через події планувальника</v:String>
-    <v:String x:Key="tgl_InstalledAppsData_conf">Збір даних про встановлені додатки</v:String>
-    <v:String x:Key="tgl_AppUsageStatistics_conf">Збір статистики використання додатків</v:String>
-    <v:String x:Key="tgl_HandwritingData_conf">Збір та надсилання даних про рукописне введення</v:String>
-    <v:String x:Key="tgl_HardwareConfigurationData_conf">Збір даних про конфігурацію обладнання</v:String>
-    <v:String x:Key="tgl_HiddenMicrosoftDomains_conf">Мережевий доступ до шпигунських доменів Microsoft</v:String>
-    <v:String x:Key="tgl_UserLocationTracking_conf">Визначення місця розташування користувача</v:String>
-    <v:String x:Key="tgl_FeedbackRequests_conf">Перевірка звернень через Відгук</v:String>
-    <v:String x:Key="tgl_SpeechSynthesisUpdates_conf">Приховане фонове оновлення синтезу мовлення</v:String>
-    <v:String x:Key="tgl_HiddenSystemMonitoring_conf">Прихований моніторинг системи</v:String>
-    <v:String x:Key="tgl_SystemExperiments_conf">Приховані експерименти над вашою системою</v:String>
-    <v:String x:Key="tgl_CovertDataCollectionServices_conf">Служби для прихованого збору та надсилання даних</v:String>
-    <v:String x:Key="tgl_WindowsEventLogging_conf">Журналювання подій Windows</v:String>
-    <v:String x:Key="tgl_NvidiaTelemetry_conf">Збір даних та моніторинг телеметрії NVIDIA</v:String>
-    <v:String x:Key="tgl_UserBehaviorRecording_conf">Журналювання дій користувача</v:String>
-    <v:String x:Key="tgl_OfflineMapsUpdates_conf">Збір даних та фонове оновлення офлайн-карт</v:String>
-    <v:String x:Key="tgl_IntelTelemetry_conf">Збір даних та моніторинг телеметрії Intel</v:String>
+    <v:String x:Key="TargetedAdvertising_conf">Ідентифікатор реклами та цільова реклама</v:String>
+    <v:String x:Key="DataSynchronization_conf">Усі типи синхронізації ваших даних</v:String>
+    <v:String x:Key="WindowsTelemetry_conf">Збір даних та моніторинг телеметрії Windows</v:String>
+    <v:String x:Key="SchedulerDataCollection_conf">Збір даних через події планувальника</v:String>
+    <v:String x:Key="InstalledAppsData_conf">Збір даних про встановлені додатки</v:String>
+    <v:String x:Key="AppUsageStatistics_conf">Збір статистики використання додатків</v:String>
+    <v:String x:Key="HandwritingData_conf">Збір та надсилання даних про рукописне введення</v:String>
+    <v:String x:Key="HardwareConfigurationData_conf">Збір даних про конфігурацію обладнання</v:String>
+    <v:String x:Key="HiddenMicrosoftDomains_conf">Мережевий доступ до шпигунських доменів Microsoft</v:String>
+    <v:String x:Key="FeedbackRequests_conf">Перевірка звернень через Відгук</v:String>
+    <v:String x:Key="SpeechSynthesisUpdates_conf">Приховане фонове оновлення синтезу мовлення</v:String>
+    <v:String x:Key="HiddenSystemMonitoring_conf">Прихований моніторинг системи</v:String>
+    <v:String x:Key="SystemExperiments_conf">Приховані експерименти над вашою системою</v:String>
+    <v:String x:Key="CovertDataCollectionServices_conf">Служби для прихованого збору та надсилання даних</v:String>
+    <v:String x:Key="WindowsEventLogging_conf">Журналювання подій Windows</v:String>
+    <v:String x:Key="NvidiaTelemetry_conf">Збір даних та моніторинг телеметрії NVIDIA</v:String>
+    <v:String x:Key="UserBehaviorRecording_conf">Журналювання дій користувача</v:String>
+    <v:String x:Key="OfflineMapsUpdates_conf">Збір даних та фонове оновлення офлайн-карт</v:String>
+    <v:String x:Key="IntelTelemetry_conf">Збір даних та моніторинг телеметрії Intel</v:String>
+    <v:String x:Key="OfficeTelemetry_conf">Collection and monitoring of Microsoft Office telemetry</v:String>
     
     <v:String x:Key="desc_TargetedAdvertising_conf">Для кожного користувача система Windows створює унікальний рекламний ідентифікатор для відстеження його дій. Використовується розробниками програм та самої Windows для власних цілей, у тому числі для демонстрації конкретної реклами в додатках.</v:String>
     <v:String x:Key="desc_DataSynchronization_conf">Навіть якщо ви використовуєте локальний обліковий запис, Windows завжди намагається синхронізувати з серверами Microsoft такі ваші дані, як теми, паролі, налаштування Windows, налаштування браузера, налаштування мовної панелі, налаштування спрощеного доступу, додаткові налаштування.</v:String>
@@ -193,7 +193,6 @@
     <v:String x:Key="desc_HandwritingData_conf">Це налаштування вимикає механізм збору даних, який Microsoft використовує для покращення технології рукописного введення. Незалежно від того, користуєтеся ви цією функцією чи ні, система відстежує вашу активність з метою підвищення точності розпізнавання. Зміни, що вносить це налаштування, запобігають такому збору інформації, забезпечуючи захист вашої конфіденційної інформації.</v:String>
     <v:String x:Key="desc_HardwareConfigurationData_conf">Програма вдосконалення якості програмного забезпечення (CEIP) - це окрема функція, яка збирає інформацію про конфігурацію вашого обладнання та використання на ньому програмного забезпечення та служб. Також періодично вивантажує файл із інформацією про проблеми, які виникають у Windows. Програма є добровільною, і вам не обов'язково надсилати дані до Microsoft, порушуючи свою конфіденційність.</v:String>
     <v:String x:Key="desc_HiddenMicrosoftDomains_conf">Це налаштування модифікує файл hosts шляхом додавання адреси 0.0.0.0 перед певними доменними іменами, що ефективно блокує їх. Додатково, змінюються налаштування брандмауера Windows і певні IP-адреси, пов’язані зі збором даних Microsoft, також блокуються.</v:String>
-    <v:String x:Key="desc_UserLocationTracking_conf">Вимкнення служб геолокації значно знижує потенціальну можливість використання даних про розташування для рекламних цілей – доступ до цієї інформації обмежено не лише для служб Microsoft, але й для будь-яких сторонніх додатків та скриптів.</v:String>
     <v:String x:Key="desc_FeedbackRequests_conf">Налаштування блокує збір відгуків та сповіщень у Windows, що запобігає надсиланню даних без вашої згоди. Навіть якщо ви не користуєтеся функцією «Відгук», Microsoft все одно фіксує, як часто ви звертаєтеся до офіційної підтримки.</v:String>
     <v:String x:Key="desc_SpeechSynthesisUpdates_conf">Windows здатна розпізнавати голос за допомогою спеціального модуля розпізнавання та синтезу мовлення. Навіть якщо ви не користуєтеся функціями Cortana або «Легкий доступ», як усталено, ваша операційна система завжди перевіряє наявність оновлень своєї системи розпізнавання голосу.</v:String>
     <v:String x:Key="desc_HiddenSystemMonitoring_conf">Функція з доступом до будь-яких даних користувачів. Обмінюється якоюсь інформацію з серверами Microsoft і жодним чином не впливає на роботу операційної системи, додатків та не допомагає користувачеві, що робить її марною.</v:String>
@@ -204,67 +203,68 @@
     <v:String x:Key="desc_UserBehaviorRecording_conf">Налаштування вимикає функцію UAR (User Activity Recording) – систему, яка послідовно фіксує кожну вашу дію на комп’ютері: від створення скриншотів і набору тексту до запуску програм та надання доступу до вебкамери навіть у стані заблокованого екрану, а також багато іншого.</v:String>
     <v:String x:Key="desc_OfflineMapsUpdates_conf">Windows періодично оновлює офлайн-карти та надсилає сповіщення про нові дані у фоновому режимі. Ці процеси можуть збирати інформацію про ваше місцезнаходження, маршрути та використання карт. Якщо ви не користуєтеся офлайн-картами, рекомендується вимкнути їх, щоб уникнути прихованих оновлень і передачі даних на сервери Microsoft без вашої прямої участі.</v:String>
     <v:String x:Key="desc_IntelTelemetry_conf">Модуль Intel, який працює у фоновому режимі для збору та передачі даних, позиціонується як інструмент для вдосконалення продуктів компанії. Однак для пересічного користувача він приносить мало практичної користі, а вимкнення цієї функції може зменшити фонову активність і запобігти непотрібній передачі даних.</v:String>
+    <v:String x:Key="desc_OfficeTelemetry_conf">Microsoft Office continuously tracks your work with documents, logging application startup speed, system crashes, and tool usage frequency, subsequently sending reports to Microsoft servers. Disabling this feature stops hidden statistics collection and halts unnecessary background monitoring processes without affecting the full functionality of Word, Excel, and other Office applications.</v:String>
     <!--#endregion-->
 
     <!--#region Interface Page -->
-    <v:String x:Key="color_CursorSelection_intf">Колір курсорного виділення:</v:String>
-    <v:String x:Key="color_Tooltip_intf">Колір спливаючої підказки:</v:String>
+    <v:String x:Key="CursorSelection_intf">Колір курсорного виділення:</v:String>
+    <v:String x:Key="Tooltip_intf">Колір спливаючої підказки:</v:String>
     
-    <v:String x:Key="exblock_NavigationItems_intf">Пункти навігації Провідника файлів:</v:String>
-    <v:String x:Key="chk_ExplorerHome_intf">Основне</v:String>
-    <v:String x:Key="chk_ExplorerGallery_intf">Галерея</v:String>
-    <v:String x:Key="chk_ExplorerOneDrive_intf">OneDrive</v:String>
+    <v:String x:Key="NavigationItems_intf">Пункти навігації Провідника файлів:</v:String>
+    <v:String x:Key="ExplorerHome_intf">Основне</v:String>
+    <v:String x:Key="ExplorerGallery_intf">Галерея</v:String>
+    <v:String x:Key="ExplorerOneDrive_intf">OneDrive</v:String>
 
-    <v:String x:Key="exblock_FileExplorerDisplay_intf">Параметри відображення в Провіднику:</v:String>
-    <v:String x:Key="chk_HiddenFiles_intf">Показувати приховані файли, папки та диски</v:String>
-    <v:String x:Key="chk_SystemFiles_intf">Показувати приховані захищені файли операційної системи</v:String>
-    <v:String x:Key="chk_FileExtensions_intf">Відображення розширень імен файлів</v:String>
-    <v:String x:Key="chk_EmptyDrives_intf">Відображення порожніх дисків</v:String>
+    <v:String x:Key="FileExplorerDisplay_intf">Параметри відображення в Провіднику:</v:String>
+    <v:String x:Key="HiddenFiles_intf">Показувати приховані файли, папки та диски</v:String>
+    <v:String x:Key="SystemFiles_intf">Показувати приховані захищені файли операційної системи</v:String>
+    <v:String x:Key="FileExtensions_intf">Відображення розширень імен файлів</v:String>
+    <v:String x:Key="EmptyDrives_intf">Відображення порожніх дисків</v:String>
 
-    <v:String x:Key="exblock_DesktopIcons_intf">Відображення значків на робочому столі:</v:String>
-    <v:String x:Key="chk_IconComputer_intf">Цей комп'ютер</v:String>
-    <v:String x:Key="chk_IconNetwork_intf">Мережа</v:String>
-    <v:String x:Key="chk_IconRecycleBin_intf">Кошик</v:String>
-    <v:String x:Key="chk_IconControlPanel_intf">Панель керування</v:String>
-    <v:String x:Key="chk_IconUserFiles_intf">Файли користувача</v:String>
-    <v:String x:Key="chk_IconOneDrive_intf">OneDrive</v:String>
+    <v:String x:Key="DesktopIcons_intf">Відображення значків на робочому столі:</v:String>
+    <v:String x:Key="IconComputer_intf">Цей комп'ютер</v:String>
+    <v:String x:Key="IconNetwork_intf">Мережа</v:String>
+    <v:String x:Key="IconRecycleBin_intf">Кошик</v:String>
+    <v:String x:Key="IconControlPanel_intf">Панель керування</v:String>
+    <v:String x:Key="IconUserFiles_intf">Файли користувача</v:String>
+    <v:String x:Key="IconOneDrive_intf">OneDrive</v:String>
 
-    <v:String x:Key="exblock_ThisPCFolders_intf">Папки в «Цей ПК»:</v:String>
-    <v:String x:Key="chk_FolderObjects3D_intf">Об'єкти 3D</v:String>
-    <v:String x:Key="chk_FolderDesktop_intf">Робочий стіл</v:String>
-    <v:String x:Key="chk_FolderDownloads_intf">Завантаження</v:String>
-    <v:String x:Key="chk_FolderDocuments_intf">Документи</v:String>
-    <v:String x:Key="chk_FolderPictures_intf">Зображення</v:String>
-    <v:String x:Key="chk_FolderMusic_intf">Музика</v:String>
-    <v:String x:Key="chk_FolderVideo_intf">Відео</v:String>
+    <v:String x:Key="ThisPCFolders_intf">Папки в «Цей ПК»:</v:String>
+    <v:String x:Key="FolderObjects3D_intf">Об'єкти 3D</v:String>
+    <v:String x:Key="FolderDesktop_intf">Робочий стіл</v:String>
+    <v:String x:Key="FolderDownloads_intf">Завантаження</v:String>
+    <v:String x:Key="FolderDocuments_intf">Документи</v:String>
+    <v:String x:Key="FolderPictures_intf">Зображення</v:String>
+    <v:String x:Key="FolderMusic_intf">Музика</v:String>
+    <v:String x:Key="FolderVideo_intf">Відео</v:String>
 
-    <v:String x:Key="tgl_SystemButtonSize_intf">Стандартний розмір системних кнопок</v:String>
-    <v:String x:Key="tgl_CursorFlickerFrequency_intf">Стандартна частота мерехтіння курсору</v:String>
-    <v:String x:Key="tgl_ScrollbarSize_intf">Стандартний розмір смуги прокручування</v:String>
-    <v:String x:Key="tgl_TaskbarTransparency_intf">Ефект прозорості панелі завдань</v:String>
-    <v:String x:Key="tgl_TaskbarDarkTheme_intf">Темна тема панелі завдань</v:String>
-    <v:String x:Key="tgl_AppDarkTheme_intf">Темна тема додатків та провідника</v:String>
-    <v:String x:Key="tgl_ContextMenuDelay_intf">Затримка виклику контекстного меню</v:String>
-    <v:String x:Key="tgl_TaskbarPreviewDelay_intf">Затримка появи мініатюр над панеллю завдань</v:String>
-    <v:String x:Key="tgl_IconOverlayBadges_intf">Відображення значків-оверлеїв на іконках</v:String>
-    <v:String x:Key="tgl_ShortcutNameSuffix_intf">Префікс «Ярлик для...»/ суфікс «- Ярлик»</v:String>
-    <v:String x:Key="tgl_TaskbarAlignment_intf">Вирівнювання панелі завдань</v:String>
-    <v:String x:Key="tgl_StartMenuLayout_intf">Стандартний макет меню «Пуск»</v:String>
-    <v:String x:Key="tgl_CompactContextMenu_intf">Скорочене контекстне меню</v:String>
-    <v:String x:Key="tgl_TipsSuggestions_intf">Показувати поради та пропозиції</v:String>
-    <v:String x:Key="tgl_CompactExplorerMode_intf">Компактний режим елементів провідника</v:String>
-    <v:String x:Key="tgl_CopilotRecall_intf">Помічники «Copilot» та «Recall»</v:String>
-    <v:String x:Key="tgl_TaskbarEndTask_intf">«Завершити завдання» ПКМ на додатку</v:String>
-    <v:String x:Key="tgl_SnapLayouts_intf">Показувати макети прив’язки вікон</v:String>
-    <v:String x:Key="tgl_TaskbarIconsButtons_intf">Піктограми та кнопки на панелі завдань</v:String>
-    <v:String x:Key="tgl_PersonalizedAds_intf">Показувати персоналізовану рекламу</v:String>
-    <v:String x:Key="tgl_RestoreFolderWindows_intf">Відновлювати останні вікна папок під час входу</v:String>
-    <v:String x:Key="tgl_TipsNotifications_intf">Повідомлення з порадами та пропозиціями Windows</v:String>
-    <v:String x:Key="tgl_JpegWallpaperCompression_intf">Стиснення шпалер робочого столу формату .JPEG</v:String>
-    <v:String x:Key="tgl_DesktopTooltips_intf">Спливні підказки для елементів робочого столу</v:String>
-    <v:String x:Key="tgl_BingStartSearch_intf">Пошуковий запит з інтеграцією «Bing» в меню «Пуск»</v:String>
-    <v:String x:Key="tgl_OpenQuickAccess_intf">Відкривати «Швидкий доступ» замість «Цей ПК»</v:String>
-    <v:String x:Key="tgl_AdaptiveBrightness_intf">Спонтанна зміна яскравості</v:String>
+    <v:String x:Key="SystemButtonSize_intf">Стандартний розмір системних кнопок</v:String>
+    <v:String x:Key="CursorFlickerFrequency_intf">Стандартна частота мерехтіння курсору</v:String>
+    <v:String x:Key="ScrollbarSize_intf">Стандартний розмір смуги прокручування</v:String>
+    <v:String x:Key="TaskbarTransparency_intf">Ефект прозорості панелі завдань</v:String>
+    <v:String x:Key="TaskbarDarkTheme_intf">Темна тема панелі завдань</v:String>
+    <v:String x:Key="AppDarkTheme_intf">Темна тема додатків та провідника</v:String>
+    <v:String x:Key="ContextMenuDelay_intf">Затримка виклику контекстного меню</v:String>
+    <v:String x:Key="TaskbarPreviewDelay_intf">Затримка появи мініатюр над панеллю завдань</v:String>
+    <v:String x:Key="IconOverlayBadges_intf">Відображення значків-оверлеїв на іконках</v:String>
+    <v:String x:Key="ShortcutNameSuffix_intf">Префікс «Ярлик для...»/ суфікс «- Ярлик»</v:String>
+    <v:String x:Key="TaskbarAlignment_intf">Вирівнювання панелі завдань</v:String>
+    <v:String x:Key="StartMenuLayout_intf">Стандартний макет меню «Пуск»</v:String>
+    <v:String x:Key="CompactContextMenu_intf">Скорочене контекстне меню</v:String>
+    <v:String x:Key="TipsSuggestions_intf">Показувати поради та пропозиції</v:String>
+    <v:String x:Key="CompactExplorerMode_intf">Компактний режим елементів провідника</v:String>
+    <v:String x:Key="CopilotRecall_intf">Помічники «Copilot» та «Recall»</v:String>
+    <v:String x:Key="TaskbarEndTask_intf">«Завершити завдання» ПКМ на додатку</v:String>
+    <v:String x:Key="SnapLayouts_intf">Показувати макети прив’язки вікон</v:String>
+    <v:String x:Key="TaskbarIconsButtons_intf">Піктограми та кнопки на панелі завдань</v:String>
+    <v:String x:Key="PersonalizedAds_intf">Показувати персоналізовану рекламу</v:String>
+    <v:String x:Key="RestoreFolderWindows_intf">Відновлювати останні вікна папок під час входу</v:String>
+    <v:String x:Key="TipsNotifications_intf">Повідомлення з порадами та пропозиціями Windows</v:String>
+    <v:String x:Key="JpegWallpaperCompression_intf">Стиснення шпалер робочого столу формату .JPEG</v:String>
+    <v:String x:Key="DesktopTooltips_intf">Спливні підказки для елементів робочого столу</v:String>
+    <v:String x:Key="BingStartSearch_intf">Пошуковий запит з інтеграцією «Bing» в меню «Пуск»</v:String>
+    <v:String x:Key="OpenQuickAccess_intf">Відкривати «Швидкий доступ» замість «Цей ПК»</v:String>
+    <v:String x:Key="AdaptiveBrightness_intf">Спонтанна зміна яскравості</v:String>
 
     <v:String x:Key="desc_CursorSelection_intf">Зміна кольору фону при виділенні тексту або об'єктів курсором у системі.</v:String>
     <v:String x:Key="desc_Tooltip_intf">Зміна кольору спливаючих підказок у підтримуваних додатках.</v:String>
@@ -389,39 +389,39 @@
     <!--#endregion-->
 
     <!--#region Services Page -->
-    <v:String x:Key="tgl_WindowsSearch_svc">Служби, пов’язані з роботою Windows Search</v:String>
-    <v:String x:Key="tgl_Xbox_svc">Служби, пов’язані з роботою Xbox</v:String>
-    <v:String x:Key="tgl_WindowsUpdate_svc">Служби, пов’язані з оновленням Windows</v:String>
-    <v:String x:Key="tgl_WindowsStore_svc">Служби, пов’язані з Магазином Windows</v:String>
-    <v:String x:Key="tgl_PerformanceCounters_svc">Служби лічильників продуктивності</v:String>
-    <v:String x:Key="tgl_Biometrics_svc">Біометрична служба Windows</v:String>
-    <v:String x:Key="tgl_Bluetooth_svc">Служби, пов’язані з роботою Bluetooth</v:String>
-    <v:String x:Key="tgl_Printers_svc">Служби, пов’язані з роботою принтера</v:String>
-    <v:String x:Key="tgl_Scanner_svc">Служби, пов’язані з роботою сканера</v:String>
-    <v:String x:Key="tgl_Fax_svc">Служби, пов’язані з роботою факсу</v:String>
-    <v:String x:Key="tgl_TabletMobileMode_svc">Служби, пов'язані з режимом планшета/смартфона</v:String>
-    <v:String x:Key="tgl_SecondaryMonitors_svc">Служби, пов’язані з роботою додаткових моніторів</v:String>
-    <v:String x:Key="tgl_SystemComponents_svc">Служба, пов'язана із системними компонентами</v:String>
-    <v:String x:Key="tgl_LocalNetwork_svc">Служби, пов’язані з роботою локальної мережі</v:String>
-    <v:String x:Key="tgl_UsbModemsRouters_svc">Служби, пов’язані з USB-модемами та роутерами</v:String>
-    <v:String x:Key="tgl_VpnClients_svc">Служби, пов’язані з клієнтами VPN</v:String>
-    <v:String x:Key="tgl_WindowsMedia_svc">Служби, пов’язані з роботою Windows Media</v:String>
-    <v:String x:Key="tgl_RemoteDesktop_svc">Служби, пов’язані з роботою віддалених робочих столів</v:String>
-    <v:String x:Key="tgl_ErrorEventLogging_svc">Служби збору даних про помилки та журнали подій</v:String>
-    <v:String x:Key="tgl_WebDav_svc">Служба віддаленого керування файлами WebDAV</v:String>
-    <v:String x:Key="tgl_SmartCards_svc">Служби, пов’язані з роботою смарт-карт</v:String>
-    <v:String x:Key="tgl_WindowsKiosk_svc">Служби, пов’язані з роботою Кіоску Windows</v:String>
-    <v:String x:Key="tgl_FileEncryption_svc">Служби, пов’язані з шифруванням файлів</v:String>
-    <v:String x:Key="tgl_WindowsLocalization_svc">Служба, пов’язана локалізацією Windows</v:String>
-    <v:String x:Key="tgl_BackgroundSecurityCheck_svc">Служби, пов’язані з фоновою перевіркою безпеки</v:String>
-    <v:String x:Key="tgl_BackgroundDiagnostics_svc">Служби, пов’язані з фоновою діагностикою</v:String>
-    <v:String x:Key="tgl_CorporateTools_svc">Служби, пов’язані з корпоративними засобами</v:String>
-    <v:String x:Key="tgl_HyperV_svc">Служба, пов’язана з роботою Hyper-V</v:String>
-    <v:String x:Key="tgl_PushNotifications_svc">Служби, пов'язані з push-сповіщеннями</v:String>
-    <v:String x:Key="tgl_RetailDemo_svc">Служби, пов'язані з демонстраційним режимом магазину</v:String>
-    <v:String x:Key="tgl_EdgeUpdates_svc">Служби, пов'язані з оновленням Microsoft Edge</v:String>
-    <v:String x:Key="tgl_MultimediaClassScheduler_svc">Служба планувальника класів мультимедіа</v:String>
-    <v:String x:Key="tgl_Geolocation_svc">Служба геолокації Windows</v:String>
+    <v:String x:Key="WindowsSearch_svc">Служби, пов’язані з роботою Windows Search</v:String>
+    <v:String x:Key="Xbox_svc">Служби, пов’язані з роботою Xbox</v:String>
+    <v:String x:Key="WindowsUpdate_svc">Служби, пов’язані з оновленням Windows</v:String>
+    <v:String x:Key="WindowsStore_svc">Служби, пов’язані з Магазином Windows</v:String>
+    <v:String x:Key="PerformanceCounters_svc">Служби лічильників продуктивності</v:String>
+    <v:String x:Key="Biometrics_svc">Біометрична служба Windows</v:String>
+    <v:String x:Key="Bluetooth_svc">Служби, пов’язані з роботою Bluetooth</v:String>
+    <v:String x:Key="Printers_svc">Служби, пов’язані з роботою принтера</v:String>
+    <v:String x:Key="Scanner_svc">Служби, пов’язані з роботою сканера</v:String>
+    <v:String x:Key="Fax_svc">Служби, пов’язані з роботою факсу</v:String>
+    <v:String x:Key="TabletMobileMode_svc">Служби, пов'язані з режимом планшета/смартфона</v:String>
+    <v:String x:Key="SecondaryMonitors_svc">Служби, пов’язані з роботою додаткових моніторів</v:String>
+    <v:String x:Key="SystemComponents_svc">Служба, пов'язана із системними компонентами</v:String>
+    <v:String x:Key="LocalNetwork_svc">Служби, пов’язані з роботою локальної мережі</v:String>
+    <v:String x:Key="UsbModemsRouters_svc">Служби, пов’язані з USB-модемами та роутерами</v:String>
+    <v:String x:Key="VpnClients_svc">Служби, пов’язані з клієнтами VPN</v:String>
+    <v:String x:Key="WindowsMedia_svc">Служби, пов’язані з роботою Windows Media</v:String>
+    <v:String x:Key="RemoteDesktop_svc">Служби, пов’язані з роботою віддалених робочих столів</v:String>
+    <v:String x:Key="ErrorEventLogging_svc">Служби збору даних про помилки та журнали подій</v:String>
+    <v:String x:Key="WebDav_svc">Служба віддаленого керування файлами WebDAV</v:String>
+    <v:String x:Key="SmartCards_svc">Служби, пов’язані з роботою смарт-карт</v:String>
+    <v:String x:Key="WindowsKiosk_svc">Служби, пов’язані з роботою Кіоску Windows</v:String>
+    <v:String x:Key="FileEncryption_svc">Служби, пов’язані з шифруванням файлів</v:String>
+    <v:String x:Key="WindowsLocalization_svc">Служба, пов’язана локалізацією Windows</v:String>
+    <v:String x:Key="BackgroundSecurityCheck_svc">Служби, пов’язані з фоновою перевіркою безпеки</v:String>
+    <v:String x:Key="BackgroundDiagnostics_svc">Служби, пов’язані з фоновою діагностикою</v:String>
+    <v:String x:Key="CorporateTools_svc">Служби, пов’язані з корпоративними засобами</v:String>
+    <v:String x:Key="HyperV_svc">Служба, пов’язана з роботою Hyper-V</v:String>
+    <v:String x:Key="PushNotifications_svc">Служби, пов'язані з push-сповіщеннями</v:String>
+    <v:String x:Key="RetailDemo_svc">Служби, пов'язані з демонстраційним режимом магазину</v:String>
+    <v:String x:Key="EdgeUpdates_svc">Служби, пов'язані з оновленням Microsoft Edge</v:String>
+    <v:String x:Key="MultimediaClassScheduler_svc">Служба планувальника класів мультимедіа</v:String>
+    <v:String x:Key="Geolocation_svc">Служба геолокації Windows</v:String>
     
     <v:String x:Key="desc_WindowsSearch_svc">Можна вимкнути, якщо ви не використовуєте історію файлів та індексацію вмісту.</v:String>
     <v:String x:Key="desc_Xbox_svc">Можна вимкнути, якщо ви не використовуєте Xbox та маніпулятор Microsoft Gamepad.</v:String>
@@ -459,40 +459,40 @@
     <!--#endregion-->
 
     <!--#region System Page -->
-    <v:String x:Key="slider_MouseSensitivity_sys">Швидкість руху вказівника миші:</v:String>
-    <v:String x:Key="slider_KeyboardDelay_sys">Затримка повтору введення з клавіатури:</v:String>
-    <v:String x:Key="slider_KeyboardSpeed_sys">Швидкість повтору клавіатури:</v:String>
-    <v:String x:Key="text_sys">Введіть текст для перевірки параметрів клавіатури</v:String>
-    <v:String x:Key="tgl_PointerPrecision_sys">Підвищена точність встановлення вказівника</v:String>
-    <v:String x:Key="tgl_StickyKeysFilter_sys">Залипання клавіш та фільтрація введення</v:String>
-    <v:String x:Key="tgl_WindowsDefender_sys">Захисник Windows, Antimalware, SmartScreen та VBS</v:String>
-    <v:String x:Key="tgl_UserAccountControl_sys">UAC (контроль облікових записів)</v:String>
-    <v:String x:Key="tgl_SecurityNotifications_sys">Сповіщення про безпеку від Центру сповіщень</v:String>
-    <v:String x:Key="tgl_StoreAutoUpdate_sys">Автооновлення додатків через магазин Microsoft Store</v:String>
-    <v:String x:Key="tgl_RealtekAudioDelay_sys">Затримка звуку у драйвері Realtek Sound</v:String>
-    <v:String x:Key="tgl_LockScreenTimeout_sys">Час очікування перед вимкненням екрана блокування</v:String>
-    <v:String x:Key="tgl_HibernationFastStartup_sys">Технологія «Гібернація» та «Швидкий запуск»</v:String>
-    <v:String x:Key="tgl_AutoEndTasks_sys">Вікно попередження під час завершення роботи</v:String>
-    <v:String x:Key="tgl_ExeLaunchWarnings_sys">Попередження під час запуску будь-яких виконуваних файлів</v:String>
-    <v:String x:Key="tgl_MemoryDiagnostics_sys">Автоматична діагностика оперативної пам’яті</v:String>
-    <v:String x:Key="tgl_NetworkProtocols_sys">Протоколи Teredo, ISATAP та IPv6</v:String>
-    <v:String x:Key="tgl_FileSystemCache_sys">Стандартний розмір кешу файлової системи</v:String>
-    <v:String x:Key="tgl_StartupDelay_sys">Уповільнення запуску Windows та програм</v:String>
-    <v:String x:Key="tgl_QuickAccessHistory_sys">Історія використання для панелі швидкого доступу</v:String>
-    <v:String x:Key="tgl_RemovableMediaAutoplay_sys">Автозапуск знімних носіїв</v:String>
-    <v:String x:Key="tgl_PowerScheme_sys">Використовувати стандартну схему живлення</v:String>
-    <v:String x:Key="tgl_BluetoothFunction_sys">Використовувати функцію «Bluetooth та пристрої»</v:String>
-    <v:String x:Key="tgl_WindowsFirewall_sys">Брандмауер Захисника Windows</v:String>
-    <v:String x:Key="tgl_GameMode_sys">Використовувати функцію «Ігровий режим»</v:String>
-    <v:String x:Key="tgl_GameBar_sys">Використовувати функцію «Ігрова панель»</v:String>
-    <v:String x:Key="tgl_BackgroundApps_sys">Програми працюють у фоновому режимі</v:String>
-    <v:String x:Key="tgl_ReservedStorage_sys">Зарезервоване сховище у Windows</v:String>
-    <v:String x:Key="tgl_DynamicTickHpet_sys">Динамічний та надточний таймер подій</v:String>
-    <v:String x:Key="tgl_HealthCheck_sys">Приховування «PC Health Check» від системи оновлень</v:String>
-    <v:String x:Key="tgl_InsiderTasks_sys">Фонові завдання Windows Insider</v:String>
-    <v:String x:Key="tgl_SystemDriveDefrag_sys">Дефрагментація системного диска</v:String>
-    <v:String x:Key="tgl_PauseWindowsUpdates_sys">Призупинити оновлення Windows</v:String>
-    <v:String x:Key="tgl_MultiPlaneOverlay_sys">Багатоплощинне накладення (MPO)</v:String>
+    <v:String x:Key="MouseSensitivity_sys">Швидкість руху вказівника миші:</v:String>
+    <v:String x:Key="KeyboardDelay_sys">Затримка повтору введення з клавіатури:</v:String>
+    <v:String x:Key="KeyboardSpeed_sys">Швидкість повтору клавіатури:</v:String>
+    <v:String x:Key="hint_keyboard_sys">Введіть текст для перевірки параметрів клавіатури</v:String>
+    <v:String x:Key="PointerPrecision_sys">Підвищена точність встановлення вказівника</v:String>
+    <v:String x:Key="StickyKeysFilter_sys">Залипання клавіш та фільтрація введення</v:String>
+    <v:String x:Key="WindowsDefender_sys">Захисник Windows, Antimalware, SmartScreen та VBS</v:String>
+    <v:String x:Key="UserAccountControl_sys">UAC (контроль облікових записів)</v:String>
+    <v:String x:Key="SecurityNotifications_sys">Сповіщення про безпеку від Центру сповіщень</v:String>
+    <v:String x:Key="StoreAutoUpdate_sys">Автооновлення додатків через магазин Microsoft Store</v:String>
+    <v:String x:Key="RealtekAudioDelay_sys">Затримка звуку у драйвері Realtek Sound</v:String>
+    <v:String x:Key="LockScreenTimeout_sys">Час очікування перед вимкненням екрана блокування</v:String>
+    <v:String x:Key="HibernationFastStartup_sys">Технологія «Гібернація» та «Швидкий запуск»</v:String>
+    <v:String x:Key="AutoEndTasks_sys">Вікно попередження під час завершення роботи</v:String>
+    <v:String x:Key="ExeLaunchWarnings_sys">Попередження під час запуску будь-яких виконуваних файлів</v:String>
+    <v:String x:Key="MemoryDiagnostics_sys">Автоматична діагностика оперативної пам’яті</v:String>
+    <v:String x:Key="NetworkProtocols_sys">Протоколи Teredo, ISATAP та IPv6</v:String>
+    <v:String x:Key="FileSystemCache_sys">Стандартний розмір кешу файлової системи</v:String>
+    <v:String x:Key="StartupDelay_sys">Уповільнення запуску Windows та програм</v:String>
+    <v:String x:Key="QuickAccessHistory_sys">Історія використання для панелі швидкого доступу</v:String>
+    <v:String x:Key="RemovableMediaAutoplay_sys">Автозапуск знімних носіїв</v:String>
+    <v:String x:Key="PowerScheme_sys">Використовувати стандартну схему живлення</v:String>
+    <v:String x:Key="BluetoothFunction_sys">Використовувати функцію «Bluetooth та пристрої»</v:String>
+    <v:String x:Key="WindowsFirewall_sys">Брандмауер Захисника Windows</v:String>
+    <v:String x:Key="GameMode_sys">Використовувати функцію «Ігровий режим»</v:String>
+    <v:String x:Key="GameBar_sys">Використовувати функцію «Ігрова панель»</v:String>
+    <v:String x:Key="BackgroundApps_sys">Програми працюють у фоновому режимі</v:String>
+    <v:String x:Key="ReservedStorage_sys">Зарезервоване сховище у Windows</v:String>
+    <v:String x:Key="DynamicTickHpet_sys">Динамічний та надточний таймер подій</v:String>
+    <v:String x:Key="HealthCheck_sys">Приховування «PC Health Check» від системи оновлень</v:String>
+    <v:String x:Key="InsiderTasks_sys">Фонові завдання Windows Insider</v:String>
+    <v:String x:Key="SystemDriveDefrag_sys">Дефрагментація системного диска</v:String>
+    <v:String x:Key="PauseWindowsUpdates_sys">Призупинити оновлення Windows</v:String>
+    <v:String x:Key="MultiPlaneOverlay_sys">Багатоплощинне накладення (MPO)</v:String>
 
     <v:String x:Key="desc_MouseSensitivity_sys">Дозволяє змінити швидкість переміщення вказівника миші, заощаджуючи ваш час на пошук відповідних параметрів.</v:String>
     <v:String x:Key="desc_KeyboardDelay_sys">Зміна затримки перед початком повторного введення символу, рекомендоване значення - 0.</v:String>
@@ -566,7 +566,7 @@
     <!--#endregion-->
 
     <!--#region Addons Page -->
-    <v:String x:Key="chk_run_ti_adds">Запуск від імені TrustedInstaller</v:String>
+    <v:String x:Key="settings_elevated_adds">Запуск від імені TrustedInstaller</v:String>
     <v:String x:Key="label_directory_adds">Папка</v:String>
     <v:String x:Key="label_count_adds">Кількість</v:String>
     <v:String x:Key="text_info_adds">Виберіть каталог або переконайтеся, що він не порожній</v:String>
@@ -574,7 +574,7 @@
     <!--#endregion-->
 
     <!--#region Toolset Page -->
-    <v:String x:Key="text_ts">Пошук за назвою або автором</v:String>
+    <v:String x:Key="hint_search_ts">Пошук за назвою або автором</v:String>
     <v:String x:Key="tag_all_ts">Усі</v:String>
     <v:String x:Key="tag_drivers_ts">Драйвери</v:String>
     <v:String x:Key="tag_tools_ts">Утиліти</v:String>

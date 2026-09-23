@@ -10,12 +10,13 @@ using Microsoft.Win32;
 
 namespace GTweak.Modules.Tweaks
 {
-    internal sealed class InterfaceTweaks
+    internal sealed class InterfaceTweaks : TaskSchedulerManager
     {
-        internal enum Color
+        internal enum Picker
         {
             CursorSelection,
-            Tooltip
+            Tooltip,
+            TaskbarPosition
         }
 
         internal enum Checkbox
@@ -168,15 +169,15 @@ namespace GTweak.Modules.Tweaks
 
         internal readonly static Dictionary<string, object> ControlStates = new Dictionary<string, object>();
         private readonly ControlWriterManager _controlWriter = new ControlWriterManager(ControlStates);
-        private readonly Dictionary<Color, (Func<string> Check, Action<string> Apply)> _colorMappings;
+        private readonly Dictionary<Picker, (Func<string> Check, Action<string> Apply)> _pickerMappings;
         private readonly Dictionary<Checkbox, (Func<bool> Check, Action<bool> Apply)> _checkboxMappings;
         private readonly Dictionary<Toggle, (Func<bool> Check, Action<bool> Apply)> _toggleMappings;
 
         public InterfaceTweaks()
         {
-            _colorMappings = new Dictionary<Color, (Func<string> Check, Action<string> Apply)>
+            _pickerMappings = new Dictionary<Picker, (Func<string> Check, Action<string> Apply)>
             {
-                [Color.CursorSelection] = (
+                [Picker.CursorSelection] = (
                     Check: () => RegistryHelper.GetValue(@"HKEY_CURRENT_USER\Control Panel\Colors", "Hilight", "0 120 215"),
                     Apply: (value) =>
                     {
@@ -185,7 +186,7 @@ namespace GTweak.Modules.Tweaks
                     }
                 ),
 
-                [Color.Tooltip] = (
+                [Picker.Tooltip] = (
                     Check: () => RegistryHelper.GetValue(@"HKEY_CURRENT_USER\Control Panel\Colors", "InfoWindow", "255 255 225"),
                     Apply: (value) =>
                     {
@@ -612,7 +613,7 @@ namespace GTweak.Modules.Tweaks
                         RegistryHelper.CheckValue(@"HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1") ||
                         RegistryHelper.CheckValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot", "TurnOffWindowsCopilot", "1") ||
                         RegistryHelper.CheckValue(@"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis", "1") ||
-                        RegistryHelper.CheckValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis", "1"));
+                        RegistryHelper.CheckValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsAI", "DisableAIDataAnalysis", "1")) || IsTaskEnabled(recallTask);
                     },
                     Apply: (state) =>
                     {
@@ -721,6 +722,8 @@ namespace GTweak.Modules.Tweaks
                             RegistryHelper.Write(Registry.LocalMachine, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Paint", "DisableRemoveBackground", 1, RegistryValueKind.DWord);
                             RegistryHelper.Write(Registry.LocalMachine, @"SOFTWARE\Policies\WindowsNotepad", "DisableAIFeatures", 1, RegistryValueKind.DWord);
                         }
+
+                        SetTaskStateOwner(state, recallTask);
                     }
                 ),
 
@@ -985,7 +988,7 @@ namespace GTweak.Modules.Tweaks
 
         internal void CheckAll()
         {
-            foreach (var tweak in _colorMappings)
+            foreach (var tweak in _pickerMappings)
             {
                 _controlWriter[tweak.Key] = tweak.Value.Check();
             }
@@ -1003,8 +1006,7 @@ namespace GTweak.Modules.Tweaks
 
         internal void Apply(string controlName, string value)
         {
-            if (Enum.TryParse<Color>(controlName, out var colorKey)
-                && _colorMappings.TryGetValue(colorKey, out var action))
+            if (Enum.TryParse<Picker>(controlName, out var colorKey) && _pickerMappings.TryGetValue(colorKey, out var action))
             {
                 Task.Run(() => action.Apply(value));
             }
